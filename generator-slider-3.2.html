@@ -1,0 +1,2744 @@
+<!-- генератор кода слайдер вариант №1 расширенная версия (адаптирован под контракт cdm, раздел 10.5) -->
+<meta charset="UTF-8">
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<style>
+/* 25 fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Kelly+Slab&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300..900&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=block');
+@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Alice&display=block');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100..700&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300..700&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100..900&display=block');
+.cdm-font-montserrat #cdm-pv-visible,
+.cdm-font-montserrat #cdm-pv-hidden,
+.cdm-font-montserrat #cdm-pv-link,
+.cdm-font-montserrat .cdm-slider-preview h5,
+.cdm-font-montserrat .cdm-slider-preview p {
+font-family: 'Montserrat', sans-serif !important;
+}
+.cdm-font-oswald #cdm-pv-visible,
+.cdm-font-oswald #cdm-pv-hidden,
+.cdm-font-oswald #cdm-pv-link,
+.cdm-font-oswald .cdm-slider-preview h5,
+.cdm-font-oswald .cdm-slider-preview p {
+font-family: 'Oswald', sans-serif !important;
+}
+.cdm-font-raleway #cdm-pv-visible,
+.cdm-font-raleway #cdm-pv-hidden,
+.cdm-font-raleway #cdm-pv-link,
+.cdm-font-raleway .cdm-slider-preview h5,
+.cdm-font-raleway .cdm-slider-preview p {
+font-family: 'Raleway', sans-serif !important;
+}
+.cdm-font-playfairdisplay #cdm-pv-visible,
+.cdm-font-playfairdisplay #cdm-pv-hidden,
+.cdm-font-playfairdisplay #cdm-pv-link,
+.cdm-font-playfairdisplay .cdm-slider-preview h5,
+.cdm-font-playfairdisplay .cdm-slider-preview p {
+font-family: 'Playfair Display', serif !important;
+}
+.cdm-font-roboto #cdm-pv-visible,
+.cdm-font-roboto #cdm-pv-hidden,
+.cdm-font-roboto #cdm-pv-link,
+.cdm-font-roboto .cdm-slider-preview h5,
+.cdm-font-roboto .cdm-slider-preview p {
+font-family: 'Roboto', sans-serif !important;
+}
+.cdm-font-lobster .cdm-slider-preview h5,
+.cdm-font-lobster .cdm-slider-preview p {
+font-family: 'Lobster', cursive !important;
+}
+.cdm-font-pacifico .cdm-slider-preview h5,
+.cdm-font-pacifico .cdm-slider-preview p {
+font-family: 'Pacifico', cursive !important;
+}
+.cdm-font-caveat .cdm-slider-preview h5,
+.cdm-font-caveat .cdm-slider-preview p {
+font-family: 'Caveat', cursive !important;
+}
+.cdm-font-montserratalternates .cdm-slider-preview h5,
+.cdm-font-montserratalternates .cdm-slider-preview p {
+font-family: 'Montserrat Alternates', sans-serif !important;
+}
+.cdm-font-kellyslab .cdm-slider-preview h5,
+.cdm-font-kellyslab .cdm-slider-preview p {
+font-family: 'Kelly Slab', cursive !important;
+}
+.cdm-font-pangolin .cdm-slider-preview h5,
+.cdm-font-pangolin .cdm-slider-preview p {
+font-family: 'Pangolin', cursive !important;
+}
+.cdm-font-opensanscondensed .cdm-slider-preview h5,
+.cdm-font-opensanscondensed .cdm-slider-preview p {
+font-family: 'Open Sans Condensed', sans-serif !important;
+}
+.cdm-font-amaticsc .cdm-slider-preview h5,
+.cdm-font-amaticsc .cdm-slider-preview p {
+font-family: 'Amatic SC', cursive !important;
+}
+.cdm-font-merriweather .cdm-slider-preview h5,
+.cdm-font-merriweather .cdm-slider-preview p {
+font-family: 'Merriweather', serif !important;
+}
+.cdm-font-comfortaa .cdm-slider-preview h5,
+.cdm-font-comfortaa .cdm-slider-preview p {
+font-family: 'Comfortaa', sans-serif !important;
+}
+.cdm-font-ptmono .cdm-slider-preview h5,
+.cdm-font-ptmono .cdm-slider-preview p {
+font-family: 'PT Mono', monospace !important;
+}
+.cdm-font-opensans .cdm-slider-preview h5,
+.cdm-font-opensans .cdm-slider-preview p {
+font-family: 'Open Sans', sans-serif !important;
+}
+.cdm-font-alice .cdm-slider-preview h5,
+.cdm-font-alice .cdm-slider-preview p {
+font-family: 'Alice', serif !important;
+}
+.cdm-font-ibmplexsans .cdm-slider-preview h5,
+.cdm-font-ibmplexsans .cdm-slider-preview p {
+font-family: 'IBM Plex Sans', sans-serif !important;
+}
+.cdm-font-manrope .cdm-slider-preview h5,
+.cdm-font-manrope .cdm-slider-preview p {
+font-family: 'Manrope', sans-serif !important;
+}
+.cdm-font-robotoslab .cdm-slider-preview h5,
+.cdm-font-robotoslab .cdm-slider-preview p {
+font-family: 'Roboto Slab', serif !important;
+}
+.cdm-font-cormorantgaramond .cdm-slider-preview h5,
+.cdm-font-cormorantgaramond .cdm-slider-preview p {
+font-family: 'Cormorant Garamond', serif !important;
+}
+.cdm-font-russoone .cdm-slider-preview h5,
+.cdm-font-russoone .cdm-slider-preview p {
+font-family: 'Russo One', sans-serif !important;
+}
+.cdm-font-sourcesanspro .cdm-slider-preview h5,
+.cdm-font-sourcesanspro .cdm-slider-preview p {
+font-family: 'Source Sans Pro', sans-serif !important;
+}
+.cdm-font-exo2 .cdm-slider-preview h5,
+.cdm-font-exo2 .cdm-slider-preview p {
+font-family: 'Exo 2', sans-serif !important;
+}
+.cdm-select-options {
+scrollbar-width: none;
+-ms-overflow-style: none;
+}
+.cdm-select-options::-webkit-scrollbar {
+display: none;
+}
+.cdm-select-option .ph {
+font-size: 19px;
+width: 19px;
+height: 19px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+margin-right: 8px;
+vertical-align: middle;
+}
+body.dark-theme-body .cdm-select-option img {
+filter: invert(1) brightness(1.5);
+}
+</style>
+<div class="cdm-master" style="max-width:1750px; margin:0 auto; font-family:'Inter',system-ui,sans-serif;">
+<div class="cdm-two-columns">
+<div class="cdm-preview-col">
+<div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+<div style="display: flex; align-items: center; gap: 10px;">
+<div class="cdm-live-dot"></div>
+<h3 style="font-weight:300; font-size:16px; margin:0; color:#333;">Предпросмотр</h3>
+</div>
+<div style="display: flex; align-items: center; gap: 10px; flex: 1; justify-content: center;">
+<label class="cdm-switch cdm-switch-sm">
+<input type="checkbox" id="cdmTogglePoints">
+<span class="cdm-slider"></span>
+</label>
+<span id="cdmPointsHelp" class="cdm-points-label" style="font-size:16px; font-weight:300; color:#959595; cursor:pointer;">Контрольные точки</span>
+</div>
+<div style="display: flex; gap: 12px; margin-right: 20px;">
+<i class="ph ph-moon" id="cdmThemeToggle" style="font-size:20px; cursor:pointer; color:#aaa; transition: color 0.2s;"></i>
+<i class="ph ph-desktop cdm-device-icon active" data-device="desktop" style="font-size:20px; cursor: pointer;"></i>
+<i class="ph ph-device-mobile cdm-device-icon" data-device="mobile" style="font-size:20px; cursor: pointer;"></i>
+</div>
+</div>
+<div id="cdmHelpPopup" style="display:none; position:absolute; z-index:1000; padding:16px 20px; border-radius:6px; max-width:430px; font-family:'Inter',sans-serif;">
+<p style="font-size:14px; font-weight:300; line-height:1.5; margin:0;">
+Имитация настройки сервиса «Максимальная ширина страницы» даёт приблизительное (ориентировочное) визуальное представление, как будет выглядеть пример кода на активном сайте относительно установленной в&nbsp;настройках сервиса ширины страницы сайта.<br><br>Важно понимать, что демонстрируемый результат примера кода в превью генератора может отличаться после размещения примера кода на активном сайте.
+</p>
+</div>
+<div id="cdmFontHelpPopup" style="display:none; position:absolute; z-index:1000; padding:16px 20px; border-radius:6px; min-width:415px; font-family:'Inter',sans-serif;">
+<p style="font-size:14px; font-weight:300; line-height:1.5; margin:0;">
+Настройка шрифта позволяет визуально максимально близко показать, как пример кода будет выглядеть на активном сайте, в пример кода выбранный шрифт не добавляется — на активном сайте к шрифту, будут применены настройки шрифта, которые установлены в&nbsp;разделе «Дизайн» в настройках активного сайта.
+</p>
+<p style="font-size:14px; font-weight:300; line-height:1.5; margin:0; margin-top:12px;">
+Некоторые из шрифтов доступны только в диапазоне насыщенности (жирности) от 400, например шрифт Playfair Display, задаваемое в настройках значение «жирности» менее этого значения для таких шрифтов недоступно, в таком случае действует алгоритм: если в настройках задаётся значение менее 400 → будет применено 400 как максимально тонкое начертание, доступное для шрифта.
+</p>
+</div>
+<div id="cdmImgHelpPopup" style="display:none; position:absolute; z-index:1000; padding:16px 20px; border-radius:6px; max-width:400px; font-family:'Inter',sans-serif;">
+<p style="font-size:14px; font-weight:300; line-height:1.5; margin:0;">
+Укажи прямую ссылку на изображение, которое будет использовано для слайда. Как рекомендация: использовать лучше изображения с&nbsp;соотношением сторон 16:9 в размере не&nbsp;менее 1920×1080 чтобы сервис не «шакалил» качество картинки.
+</p>
+</div>
+<div id="cdmLivePreviewWrapper" style="display: flex; justify-content: center; min-height: 450px; background: transparent; border-radius: 12px;">
+<div id="cdmLivePreview" style="width: 100%; padding: 20px; display: flex; align-items: flex-start; justify-content: center;"></div>
+</div>
+</div>
+<div class="cdm-controls-col">
+<div class="cdm-controls-inner">
+<div style="margin-bottom:24px;">
+<h3 style="font-size:14px; font-weight:300; margin:0 0 16px; color:#333;"><i class="ph ph-faders" style="font-size:14px; color:#333; margin-right:6px;"></i>Общие настройки</h3>
+<div class="cdm-control-group">
+<label class="cdm-label">Скругление углов слайдера <span id="sliderRadiusVal">8</span>px</label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmSliderRadius" class="cdm-range" min="0" max="30" value="8" step="1">
+<div class="cdm-range-values"><span>0px</span><span>15px</span><span>30px</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Масштаб слайда при анимации <span id="zoomScaleVal">1.3</span></label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmZoomScale" class="cdm-range" min="1" max="2" value="1.3" step="0.1">
+<div class="cdm-range-values"><span>1</span><span>1.5</span><span>2</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Общее время анимации слайдера <span id="totalTimeVal">30</span>с</label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmTotalTime" class="cdm-range" min="0" max="60" value="30" step="5">
+<div class="cdm-range-values"><span>0с</span><span>30с</span><span>60с</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Шрифт заголовка и текста <i class="ph ph-question" id="cdmFontHelpIcon" style="font-size:16px; vertical-align:middle; cursor:pointer; margin-left:6px;"></i></label>
+<div class="cdm-custom-select" data-value="none" id="cdmFontSelect">
+<div class="cdm-select-trigger">Шрифт не выбран <i class="ph ph-caret-down" style="float:right;"></i></div>
+<div class="cdm-select-options">
+<div class="cdm-select-option" data-value="none">Шрифт не выбран</div>
+<div class="cdm-select-option" data-value="Montserrat"><i class="ph ph-text-aa"></i> Шрифт Montserrat</div>
+<div class="cdm-select-option" data-value="Oswald"><i class="ph ph-text-aa"></i> Шрифт Oswald</div>
+<div class="cdm-select-option" data-value="Raleway"><i class="ph ph-text-aa"></i> Шрифт Raleway</div>
+<div class="cdm-select-option" data-value="PlayfairDisplay"><i class="ph ph-text-aa"></i> Шрифт Playfair Display</div>
+<div class="cdm-select-option" data-value="Roboto"><i class="ph ph-text-aa"></i> Шрифт Roboto</div>
+<div class="cdm-select-option" data-value="Lobster"><i class="ph ph-text-aa"></i> Шрифт Lobster</div>
+<div class="cdm-select-option" data-value="Pacifico"><i class="ph ph-text-aa"></i> Шрифт Pacifico</div>
+<div class="cdm-select-option" data-value="Caveat"><i class="ph ph-text-aa"></i> Шрифт Caveat</div>
+<div class="cdm-select-option" data-value="MontserratAlternates"><i class="ph ph-text-aa"></i> Шрифт Montserrat Alternates</div>
+<div class="cdm-select-option" data-value="KellySlab"><i class="ph ph-text-aa"></i> Шрифт Kelly Slab</div>
+<div class="cdm-select-option" data-value="Pangolin"><i class="ph ph-text-aa"></i> Шрифт Pangolin</div>
+<div class="cdm-select-option" data-value="OpenSansCondensed"><i class="ph ph-text-aa"></i> Шрифт Open Sans Condensed</div>
+<div class="cdm-select-option" data-value="AmaticSC"><i class="ph ph-text-aa"></i> Шрифт Amatic SC</div>
+<div class="cdm-select-option" data-value="Merriweather"><i class="ph ph-text-aa"></i> Шрифт Merriweather</div>
+<div class="cdm-select-option" data-value="Comfortaa"><i class="ph ph-text-aa"></i> Шрифт Comfortaa</div>
+<div class="cdm-select-option" data-value="PTMono"><i class="ph ph-text-aa"></i> Шрифт PT Mono</div>
+<div class="cdm-select-option" data-value="OpenSans"><i class="ph ph-text-aa"></i> Шрифт Open Sans</div>
+<div class="cdm-select-option" data-value="Alice"><i class="ph ph-text-aa"></i> Шрифт Alice</div>
+<div class="cdm-select-option" data-value="IBMPlexSans"><i class="ph ph-text-aa"></i> Шрифт IBM Plex Sans</div>
+<div class="cdm-select-option" data-value="Manrope"><i class="ph ph-text-aa"></i> Шрифт Manrope</div>
+<div class="cdm-select-option" data-value="RobotoSlab"><i class="ph ph-text-aa"></i> Шрифт Roboto Slab</div>
+<div class="cdm-select-option" data-value="CormorantGaramond"><i class="ph ph-text-aa"></i> Шрифт Cormorant Garamond</div>
+<div class="cdm-select-option" data-value="RussoOne"><i class="ph ph-text-aa"></i> Шрифт Russo One</div>
+<div class="cdm-select-option" data-value="SourceSansPro"><i class="ph ph-text-aa"></i> Шрифт Source Sans Pro</div>
+<div class="cdm-select-option" data-value="Exo2"><i class="ph ph-text-aa"></i> Шрифт Exo 2</div>
+</div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Цвет фона плашки</label>
+<div class="cdm-color-palette">
+<div class="cdm-palette-row">
+<div class="cdm-color-swatch" data-color="#ffffff" style="background:#ffffff; border:1px solid #ccc;"></div>
+<div class="cdm-color-swatch" data-color="#f5f5f5" style="background:#f5f5f5;"></div>
+<div class="cdm-color-swatch" data-color="#e8e8e8" style="background:#e8e8e8;"></div>
+<div class="cdm-color-swatch" data-color="#d9d9d9" style="background:#d9d9d9;"></div>
+<div class="cdm-color-swatch" data-color="#cccccc" style="background:#cccccc;"></div>
+<div class="cdm-color-swatch" data-color="#b3b3b3" style="background:#b3b3b3;"></div>
+<div class="cdm-color-swatch" data-color="#999999" style="background:#999999;"></div>
+<div class="cdm-color-swatch" data-color="#808080" style="background:#808080;"></div>
+<div class="cdm-color-swatch" data-color="#666666" style="background:#666666;"></div>
+<div class="cdm-color-swatch" data-color="#4d4d4d" style="background:#4d4d4d;"></div>
+<div class="cdm-color-swatch" data-color="#333333" style="background:#333333;"></div>
+<div class="cdm-color-swatch" data-color="#1a1a1a" style="background:#1a1a1a;"></div>
+</div>
+<div class="cdm-palette-row">
+<div class="cdm-color-swatch" data-color="#A47864" style="background:#A47864;"></div>
+<div class="cdm-color-swatch" data-color="#101585" style="background:#101585;"></div>
+<div class="cdm-color-swatch" data-color="#A78BFA" style="background:#A78BFA;"></div>
+<div class="cdm-color-swatch" data-color="#4CAF50" style="background:#4CAF50;"></div>
+<div class="cdm-color-swatch" data-color="#FFDD44" style="background:#FFDD44;"></div>
+<div class="cdm-color-swatch" data-color="#E2725B" style="background:#E2725B;"></div>
+<div class="cdm-color-swatch" data-color="#D58D8D" style="background:#D58D8D;"></div>
+<div class="cdm-color-swatch" data-color="#316263" style="background:#316263;"></div>
+<div class="cdm-color-swatch" data-color="#C27A5A" style="background:#C27A5A;"></div>
+<div class="cdm-color-swatch" data-color="#FF6F61" style="background:#FF6F61;"></div>
+<div class="cdm-color-swatch" data-color="#1E3A8A" style="background:#1E3A8A;"></div>
+<div class="cdm-color-swatch" data-color="#A8E6CF" style="background:#A8E6CF;"></div>
+</div>
+<div class="cdm-opacity-row">
+<span class="cdm-opacity-label-text">Прозрачность</span>
+<input type="range" id="cdmBgOpacity" class="cdm-range cdm-opacity-range" min="0" max="100" value="28" step="1">
+<span class="cdm-opacity-value" id="bgOpacityVal">28%</span>
+</div>
+<div class="cdm-custom-color-row" data-target="bgColor" style="display: flex; align-items: center; justify-content: space-between; padding-top: 8px; cursor: pointer;">
+<div style="display: flex; align-items: center; gap: 8px;"><i class="ph-light ph-palette" style="font-size: 14px; color: #333;"></i><span style="font-size: 14px; font-weight: 300; color: #333;">Свой цвет</span></div>
+<div style="display: flex; align-items: center; gap: 8px;"><span class="customColorHexBgColor" style="font-size: 12px; color: #666; font-weight: 300;">#ffffff</span><div class="customColorPreviewBgColor" style="width: 18px; height: 18px; border-radius: 6px; background-color: #ffffff; margin-right: 5px;"></div></div>
+</div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Цвет заголовка плашки</label>
+<div class="cdm-color-palette">
+<div class="cdm-palette-row">
+<div class="cdm-color-swatch" data-color="#ffffff" style="background:#ffffff; border:1px solid #ccc;"></div>
+<div class="cdm-color-swatch" data-color="#f5f5f5" style="background:#f5f5f5;"></div>
+<div class="cdm-color-swatch" data-color="#e8e8e8" style="background:#e8e8e8;"></div>
+<div class="cdm-color-swatch" data-color="#d9d9d9" style="background:#d9d9d9;"></div>
+<div class="cdm-color-swatch" data-color="#cccccc" style="background:#cccccc;"></div>
+<div class="cdm-color-swatch" data-color="#b3b3b3" style="background:#b3b3b3;"></div>
+<div class="cdm-color-swatch" data-color="#999999" style="background:#999999;"></div>
+<div class="cdm-color-swatch" data-color="#808080" style="background:#808080;"></div>
+<div class="cdm-color-swatch" data-color="#666666" style="background:#666666;"></div>
+<div class="cdm-color-swatch" data-color="#4d4d4d" style="background:#4d4d4d;"></div>
+<div class="cdm-color-swatch" data-color="#333333" style="background:#333333;"></div>
+<div class="cdm-color-swatch" data-color="#1a1a1a" style="background:#1a1a1a;"></div>
+</div>
+<div class="cdm-palette-row">
+<div class="cdm-color-swatch" data-color="#A47864" style="background:#A47864;"></div>
+<div class="cdm-color-swatch" data-color="#101585" style="background:#101585;"></div>
+<div class="cdm-color-swatch" data-color="#A78BFA" style="background:#A78BFA;"></div>
+<div class="cdm-color-swatch" data-color="#4CAF50" style="background:#4CAF50;"></div>
+<div class="cdm-color-swatch" data-color="#FFDD44" style="background:#FFDD44;"></div>
+<div class="cdm-color-swatch" data-color="#E2725B" style="background:#E2725B;"></div>
+<div class="cdm-color-swatch" data-color="#D58D8D" style="background:#D58D8D;"></div>
+<div class="cdm-color-swatch" data-color="#316263" style="background:#316263;"></div>
+<div class="cdm-color-swatch" data-color="#C27A5A" style="background:#C27A5A;"></div>
+<div class="cdm-color-swatch" data-color="#FF6F61" style="background:#FF6F61;"></div>
+<div class="cdm-color-swatch" data-color="#1E3A8A" style="background:#1E3A8A;"></div>
+<div class="cdm-color-swatch" data-color="#A8E6CF" style="background:#A8E6CF;"></div>
+</div>
+<div class="cdm-opacity-row">
+<span class="cdm-opacity-label-text">Прозрачность</span>
+<input type="range" id="cdmTitleOpacity" class="cdm-range cdm-opacity-range" min="0" max="100" value="0" step="1">
+<span class="cdm-opacity-value" id="titleOpacityVal">0%</span>
+</div>
+<div class="cdm-custom-color-row" data-target="titleColor" style="display: flex; align-items: center; justify-content: space-between; padding-top: 8px; cursor: pointer;">
+<div style="display: flex; align-items: center; gap: 8px;"><i class="ph-light ph-palette" style="font-size: 14px; color: #333;"></i><span style="font-size: 14px; font-weight: 300; color: #333;">Свой цвет</span></div>
+<div style="display: flex; align-items: center; gap: 8px;"><span class="customColorHexTitleColor" style="font-size: 12px; color: #666; font-weight: 300;">#333333</span><div class="customColorPreviewTitleColor" style="width: 18px; height: 18px; border-radius: 6px; background-color: #333333; margin-right: 5px;"></div></div>
+</div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Цвет текста на плашке</label>
+<div class="cdm-color-palette">
+<div class="cdm-palette-row">
+<div class="cdm-color-swatch" data-color="#ffffff" style="background:#ffffff; border:1px solid #ccc;"></div>
+<div class="cdm-color-swatch" data-color="#f5f5f5" style="background:#f5f5f5;"></div>
+<div class="cdm-color-swatch" data-color="#e8e8e8" style="background:#e8e8e8;"></div>
+<div class="cdm-color-swatch" data-color="#d9d9d9" style="background:#d9d9d9;"></div>
+<div class="cdm-color-swatch" data-color="#cccccc" style="background:#cccccc;"></div>
+<div class="cdm-color-swatch" data-color="#b3b3b3" style="background:#b3b3b3;"></div>
+<div class="cdm-color-swatch" data-color="#999999" style="background:#999999;"></div>
+<div class="cdm-color-swatch" data-color="#808080" style="background:#808080;"></div>
+<div class="cdm-color-swatch" data-color="#666666" style="background:#666666;"></div>
+<div class="cdm-color-swatch" data-color="#4d4d4d" style="background:#4d4d4d;"></div>
+<div class="cdm-color-swatch" data-color="#333333" style="background:#333333;"></div>
+<div class="cdm-color-swatch" data-color="#1a1a1a" style="background:#1a1a1a;"></div>
+</div>
+<div class="cdm-palette-row">
+<div class="cdm-color-swatch" data-color="#A47864" style="background:#A47864;"></div>
+<div class="cdm-color-swatch" data-color="#101585" style="background:#101585;"></div>
+<div class="cdm-color-swatch" data-color="#A78BFA" style="background:#A78BFA;"></div>
+<div class="cdm-color-swatch" data-color="#4CAF50" style="background:#4CAF50;"></div>
+<div class="cdm-color-swatch" data-color="#FFDD44" style="background:#FFDD44;"></div>
+<div class="cdm-color-swatch" data-color="#E2725B" style="background:#E2725B;"></div>
+<div class="cdm-color-swatch" data-color="#D58D8D" style="background:#D58D8D;"></div>
+<div class="cdm-color-swatch" data-color="#316263" style="background:#316263;"></div>
+<div class="cdm-color-swatch" data-color="#C27A5A" style="background:#C27A5A;"></div>
+<div class="cdm-color-swatch" data-color="#FF6F61" style="background:#FF6F61;"></div>
+<div class="cdm-color-swatch" data-color="#1E3A8A" style="background:#1E3A8A;"></div>
+<div class="cdm-color-swatch" data-color="#A8E6CF" style="background:#A8E6CF;"></div>
+</div>
+<div class="cdm-opacity-row">
+<span class="cdm-opacity-label-text">Прозрачность</span>
+<input type="range" id="cdmTextOpacity" class="cdm-range cdm-opacity-range" min="0" max="100" value="0" step="1">
+<span class="cdm-opacity-value" id="textOpacityVal">0%</span>
+</div>
+<div class="cdm-custom-color-row" data-target="textColor" style="display: flex; align-items: center; justify-content: space-between; padding-top: 8px; cursor: pointer;">
+<div style="display: flex; align-items: center; gap: 8px;"><i class="ph-light ph-palette" style="font-size: 14px; color: #333;"></i><span style="font-size: 14px; font-weight: 300; color: #333;">Свой цвет</span></div>
+<div style="display: flex; align-items: center; gap: 8px;"><span class="customColorHexTextColor" style="font-size: 12px; color: #666; font-weight: 300;">#333333</span><div class="customColorPreviewTextColor" style="width: 18px; height: 18px; border-radius: 6px; background-color: #333333; margin-right: 5px;"></div></div>
+</div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label" style="font-size:14px; font-weight:300; color:#333; margin-bottom:12px;">Управление слайдами</label>
+<div id="cdmSlidesContainer"></div>
+<button id="cdmAddSlideBtn" class="cdm-add-slide-btn"><i class="ph ph-selection-plus"></i> Добавить слайд</button>
+</div>
+</div>
+<div style="margin-bottom:24px;">
+<h3 style="font-size:14px; font-weight:300; margin:0 0 16px; color:#333;"><i class="ph ph-faders" style="font-size:14px; color:#333; margin-right:6px;"></i>Настройки (десктоп)</h3>
+<div class="cdm-control-group">
+<label class="cdm-label">Ширина блока слайдера <span id="desktopWidthVal">90</span>%</label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmDesktopWidth" class="cdm-range" min="20" max="100" value="90" step="1">
+<div class="cdm-range-values"><span>20%</span><span>60%</span><span>100%</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Высота блока слайдера <span id="desktopHeightVal">600</span>px</label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmDesktopHeight" class="cdm-range" min="300" max="900" value="600" step="10">
+<div class="cdm-range-values"><span>300px</span><span>600px</span><span>900px</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Размер шрифта заголовка <span id="desktopTitleSizeVal">22</span>px</label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmDesktopTitleSize" class="cdm-range" min="12" max="60" value="22" step="1">
+<div class="cdm-range-values"><span>12px</span><span>36px</span><span>60px</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Размер шрифта текста <span id="desktopTextSizeVal">15</span>px</label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmDesktopTextSize" class="cdm-range" min="8" max="36" value="15" step="1">
+<div class="cdm-range-values"><span>8px</span><span>22px</span><span>36px</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Жирность шрифта заголовка <span id="desktopTitleWeightVal">700</span></label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmDesktopTitleWeight" class="cdm-range" min="100" max="900" value="700" step="100">
+<div class="cdm-range-values"><span>100</span><span>500</span><span>900</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Жирность шрифта текста <span id="desktopTextWeightVal">300</span></label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmDesktopTextWeight" class="cdm-range" min="100" max="900" value="300" step="100">
+<div class="cdm-range-values"><span>100</span><span>500</span><span>900</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Отступ текста от заголовка <span id="desktopTextMarginVal">10</span>px</label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmDesktopTextMargin" class="cdm-range" min="0" max="30" value="10" step="1">
+<div class="cdm-range-values"><span>0px</span><span>15px</span><span>30px</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Толщина рамки слайдера <span id="desktopBorderWidthVal">0</span>px</label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmDesktopBorderWidth" class="cdm-range" min="0" max="10" value="0" step="1">
+<div class="cdm-range-values"><span>0px</span><span>5px</span><span>10px</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Цвет рамки слайдера</label>
+<div class="cdm-color-palette">
+<div class="cdm-palette-row">
+<div class="cdm-color-swatch" data-color="#ffffff" style="background:#ffffff; border:1px solid #ccc;"></div>
+<div class="cdm-color-swatch" data-color="#f5f5f5" style="background:#f5f5f5;"></div>
+<div class="cdm-color-swatch" data-color="#e8e8e8" style="background:#e8e8e8;"></div>
+<div class="cdm-color-swatch" data-color="#d9d9d9" style="background:#d9d9d9;"></div>
+<div class="cdm-color-swatch" data-color="#cccccc" style="background:#cccccc;"></div>
+<div class="cdm-color-swatch" data-color="#b3b3b3" style="background:#b3b3b3;"></div>
+<div class="cdm-color-swatch" data-color="#999999" style="background:#999999;"></div>
+<div class="cdm-color-swatch" data-color="#808080" style="background:#808080;"></div>
+<div class="cdm-color-swatch" data-color="#666666" style="background:#666666;"></div>
+<div class="cdm-color-swatch" data-color="#4d4d4d" style="background:#4d4d4d;"></div>
+<div class="cdm-color-swatch" data-color="#333333" style="background:#333333;"></div>
+<div class="cdm-color-swatch" data-color="#1a1a1a" style="background:#1a1a1a;"></div>
+</div>
+<div class="cdm-palette-row">
+<div class="cdm-color-swatch" data-color="#A47864" style="background:#A47864;"></div>
+<div class="cdm-color-swatch" data-color="#101585" style="background:#101585;"></div>
+<div class="cdm-color-swatch" data-color="#A78BFA" style="background:#A78BFA;"></div>
+<div class="cdm-color-swatch" data-color="#4CAF50" style="background:#4CAF50;"></div>
+<div class="cdm-color-swatch" data-color="#FFDD44" style="background:#FFDD44;"></div>
+<div class="cdm-color-swatch" data-color="#E2725B" style="background:#E2725B;"></div>
+<div class="cdm-color-swatch" data-color="#D58D8D" style="background:#D58D8D;"></div>
+<div class="cdm-color-swatch" data-color="#316263" style="background:#316263;"></div>
+<div class="cdm-color-swatch" data-color="#C27A5A" style="background:#C27A5A;"></div>
+<div class="cdm-color-swatch" data-color="#FF6F61" style="background:#FF6F61;"></div>
+<div class="cdm-color-swatch" data-color="#1E3A8A" style="background:#1E3A8A;"></div>
+<div class="cdm-color-swatch" data-color="#A8E6CF" style="background:#A8E6CF;"></div>
+</div>
+<div class="cdm-opacity-row">
+<span class="cdm-opacity-label-text">Прозрачность</span>
+<input type="range" id="cdmDesktopBorderOpacity" class="cdm-range cdm-opacity-range" min="0" max="100" value="0" step="1">
+<span class="cdm-opacity-value" id="desktopBorderOpacityVal">0%</span>
+</div>
+<div class="cdm-custom-color-row" data-target="desktopBorderColor" style="display: flex; align-items: center; justify-content: space-between; padding-top: 8px; cursor: pointer;">
+<div style="display: flex; align-items: center; gap: 8px;"><i class="ph-light ph-palette" style="font-size: 14px; color: #333;"></i><span style="font-size: 14px; font-weight: 300; color: #333;">Свой цвет</span></div>
+<div style="display: flex; align-items: center; gap: 8px;"><span class="customColorHexDesktopBorderColor" style="font-size: 12px; color: #666; font-weight: 300;">#cccccc</span><div class="customColorPreviewDesktopBorderColor" style="width: 18px; height: 18px; border-radius: 6px; background-color: #cccccc; margin-right: 5px;"></div></div>
+</div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Выравнивание заголовка</label>
+<div class="cdm-custom-select" data-value="left" id="cdmDesktopTitleAlign">
+<div class="cdm-select-trigger">По левому краю <i class="ph ph-caret-down" style="float:right;"></i></div>
+<div class="cdm-select-options">
+<div class="cdm-select-option" data-value="left"><i class="ph ph-text-align-left"></i> По левому краю</div>
+<div class="cdm-select-option" data-value="center"><i class="ph ph-text-align-center"></i> По середине</div>
+<div class="cdm-select-option" data-value="right"><i class="ph ph-text-align-right"></i> По правому краю</div>
+</div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Выравнивание текста</label>
+<div class="cdm-custom-select" data-value="left" id="cdmDesktopTextAlign">
+<div class="cdm-select-trigger">По левому краю <i class="ph ph-caret-down" style="float:right;"></i></div>
+<div class="cdm-select-options">
+<div class="cdm-select-option" data-value="left"><i class="ph ph-text-align-left"></i> По левому краю</div>
+<div class="cdm-select-option" data-value="center"><i class="ph ph-text-align-center"></i> По середине</div>
+<div class="cdm-select-option" data-value="right"><i class="ph ph-text-align-right"></i> По правому краю</div>
+<div class="cdm-select-option" data-value="justify"><i class="ph ph-text-align-justify"></i> По ширине</div>
+</div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Внешние отступы плашки (px)</label>
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
+<div><input type="number" id="cdmDesktopPanelMarginRight" class="cdm-input" value="0" min="0" style="width:100%;"> <span class="cdm-mini-label">Справа</span></div>
+<div><input type="number" id="cdmDesktopPanelMarginLeft" class="cdm-input" value="0" min="0" style="width:100%;"> <span class="cdm-mini-label">Слева</span></div>
+<div><input type="number" id="cdmDesktopPanelMarginBottom" class="cdm-input" value="0" min="0" style="width:100%;"> <span class="cdm-mini-label">Снизу</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Внутренние отступы плашки (px)</label>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+<div><input type="number" id="cdmDesktopPanelPaddingTop" class="cdm-input" value="30" min="0" style="width:100%;"> <span class="cdm-mini-label">Сверху</span></div>
+<div><input type="number" id="cdmDesktopPanelPaddingRight" class="cdm-input" value="30" min="0" style="width:100%;"> <span class="cdm-mini-label">Справа</span></div>
+<div><input type="number" id="cdmDesktopPanelPaddingBottom" class="cdm-input" value="30" min="0" style="width:100%;"> <span class="cdm-mini-label">Снизу</span></div>
+<div><input type="number" id="cdmDesktopPanelPaddingLeft" class="cdm-input" value="30" min="0" style="width:100%;"> <span class="cdm-mini-label">Слева</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Нижний отступ плашки <span id="desktopPanelBottomVal">0</span>px</label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmDesktopPanelBottom" class="cdm-range" min="0" max="100" value="0" step="1">
+<div class="cdm-range-values"><span>0px</span><span>50px</span><span>100px</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Скругление углов плашки <span id="desktopPanelRadiusVal">0</span>px</label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmDesktopPanelRadius" class="cdm-range" min="0" max="30" value="0" step="1">
+<div class="cdm-range-values"><span>0px</span><span>15px</span><span>30px</span></div>
+</div>
+</div>
+</div>
+<div style="margin-bottom:24px;">
+<h3 style="font-size:14px; font-weight:300; margin:0 0 16px; color:#333;"><i class="ph ph-faders" style="font-size:14px; color:#333; margin-right:6px;"></i>Настройки (мобильные)</h3>
+<div class="cdm-control-group">
+<label class="cdm-label">Ширина блока слайдера <span id="mobileWidthVal">95</span>%</label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmMobileWidth" class="cdm-range" min="20" max="100" value="95" step="1">
+<div class="cdm-range-values"><span>20%</span><span>60%</span><span>100%</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Высота блока слайдера <span id="mobileHeightVal">400</span>px</label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmMobileHeight" class="cdm-range" min="250" max="700" value="400" step="10">
+<div class="cdm-range-values"><span>250px</span><span>475px</span><span>700px</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Размер шрифта заголовка <span id="mobileTitleSizeVal">16</span>px</label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmMobileTitleSize" class="cdm-range" min="10" max="40" value="16" step="1">
+<div class="cdm-range-values"><span>10px</span><span>25px</span><span>40px</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Размер шрифта текста <span id="mobileTextSizeVal">13</span>px</label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmMobileTextSize" class="cdm-range" min="8" max="28" value="13" step="1">
+<div class="cdm-range-values"><span>8px</span><span>18px</span><span>28px</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Жирность шрифта заголовка <span id="mobileTitleWeightVal">700</span></label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmMobileTitleWeight" class="cdm-range" min="100" max="900" value="700" step="100">
+<div class="cdm-range-values"><span>100</span><span>500</span><span>900</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Жирность шрифта текста <span id="mobileTextWeightVal">300</span></label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmMobileTextWeight" class="cdm-range" min="100" max="900" value="300" step="100">
+<div class="cdm-range-values"><span>100</span><span>500</span><span>900</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Отступ текста от заголовка <span id="mobileTextMarginVal">8</span>px</label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmMobileTextMargin" class="cdm-range" min="0" max="30" value="8" step="1">
+<div class="cdm-range-values"><span>0px</span><span>15px</span><span>30px</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Толщина рамки слайдера <span id="mobileBorderWidthVal">0</span>px</label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmMobileBorderWidth" class="cdm-range" min="0" max="10" value="0" step="1">
+<div class="cdm-range-values"><span>0px</span><span>5px</span><span>10px</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Цвет рамки слайдера</label>
+<div class="cdm-color-palette">
+<div class="cdm-palette-row">
+<div class="cdm-color-swatch" data-color="#ffffff" style="background:#ffffff; border:1px solid #ccc;"></div>
+<div class="cdm-color-swatch" data-color="#f5f5f5" style="background:#f5f5f5;"></div>
+<div class="cdm-color-swatch" data-color="#e8e8e8" style="background:#e8e8e8;"></div>
+<div class="cdm-color-swatch" data-color="#d9d9d9" style="background:#d9d9d9;"></div>
+<div class="cdm-color-swatch" data-color="#cccccc" style="background:#cccccc;"></div>
+<div class="cdm-color-swatch" data-color="#b3b3b3" style="background:#b3b3b3;"></div>
+<div class="cdm-color-swatch" data-color="#999999" style="background:#999999;"></div>
+<div class="cdm-color-swatch" data-color="#808080" style="background:#808080;"></div>
+<div class="cdm-color-swatch" data-color="#666666" style="background:#666666;"></div>
+<div class="cdm-color-swatch" data-color="#4d4d4d" style="background:#4d4d4d;"></div>
+<div class="cdm-color-swatch" data-color="#333333" style="background:#333333;"></div>
+<div class="cdm-color-swatch" data-color="#1a1a1a" style="background:#1a1a1a;"></div>
+</div>
+<div class="cdm-palette-row">
+<div class="cdm-color-swatch" data-color="#A47864" style="background:#A47864;"></div>
+<div class="cdm-color-swatch" data-color="#101585" style="background:#101585;"></div>
+<div class="cdm-color-swatch" data-color="#A78BFA" style="background:#A78BFA;"></div>
+<div class="cdm-color-swatch" data-color="#4CAF50" style="background:#4CAF50;"></div>
+<div class="cdm-color-swatch" data-color="#FFDD44" style="background:#FFDD44;"></div>
+<div class="cdm-color-swatch" data-color="#E2725B" style="background:#E2725B;"></div>
+<div class="cdm-color-swatch" data-color="#D58D8D" style="background:#D58D8D;"></div>
+<div class="cdm-color-swatch" data-color="#316263" style="background:#316263;"></div>
+<div class="cdm-color-swatch" data-color="#C27A5A" style="background:#C27A5A;"></div>
+<div class="cdm-color-swatch" data-color="#FF6F61" style="background:#FF6F61;"></div>
+<div class="cdm-color-swatch" data-color="#1E3A8A" style="background:#1E3A8A;"></div>
+<div class="cdm-color-swatch" data-color="#A8E6CF" style="background:#A8E6CF;"></div>
+</div>
+<div class="cdm-opacity-row">
+<span class="cdm-opacity-label-text">Прозрачность</span>
+<input type="range" id="cdmMobileBorderOpacity" class="cdm-range cdm-opacity-range" min="0" max="100" value="0" step="1">
+<span class="cdm-opacity-value" id="mobileBorderOpacityVal">0%</span>
+</div>
+<div class="cdm-custom-color-row" data-target="mobileBorderColor" style="display: flex; align-items: center; justify-content: space-between; padding-top: 8px; cursor: pointer;">
+<div style="display: flex; align-items: center; gap: 8px;"><i class="ph-light ph-palette" style="font-size: 14px; color: #333;"></i><span style="font-size: 14px; font-weight: 300; color: #333;">Свой цвет</span></div>
+<div style="display: flex; align-items: center; gap: 8px;"><span class="customColorHexMobileBorderColor" style="font-size: 12px; color: #666; font-weight: 300;">#cccccc</span><div class="customColorPreviewMobileBorderColor" style="width: 18px; height: 18px; border-radius: 6px; background-color: #cccccc; margin-right: 5px;"></div></div>
+</div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Выравнивание заголовка</label>
+<div class="cdm-custom-select" data-value="left" id="cdmMobileTitleAlign">
+<div class="cdm-select-trigger">По левому краю <i class="ph ph-caret-down" style="float:right;"></i></div>
+<div class="cdm-select-options">
+<div class="cdm-select-option" data-value="left"><i class="ph ph-text-align-left"></i> По левому краю</div>
+<div class="cdm-select-option" data-value="center"><i class="ph ph-text-align-center"></i> По середине</div>
+<div class="cdm-select-option" data-value="right"><i class="ph ph-text-align-right"></i> По правому краю</div>
+</div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Выравнивание текста</label>
+<div class="cdm-custom-select" data-value="left" id="cdmMobileTextAlign">
+<div class="cdm-select-trigger">По левому краю <i class="ph ph-caret-down" style="float:right;"></i></div>
+<div class="cdm-select-options">
+<div class="cdm-select-option" data-value="left"><i class="ph ph-text-align-left"></i> По левому краю</div>
+<div class="cdm-select-option" data-value="center"><i class="ph ph-text-align-center"></i> По середине</div>
+<div class="cdm-select-option" data-value="right"><i class="ph ph-text-align-right"></i> По правому краю</div>
+<div class="cdm-select-option" data-value="justify"><i class="ph ph-text-align-justify"></i> По ширине</div>
+</div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Внешние отступы плашки (px)</label>
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
+<div><input type="number" id="cdmMobilePanelMarginRight" class="cdm-input" value="0" min="0" style="width:100%;"> <span class="cdm-mini-label">Справа</span></div>
+<div><input type="number" id="cdmMobilePanelMarginLeft" class="cdm-input" value="0" min="0" style="width:100%;"> <span class="cdm-mini-label">Слева</span></div>
+<div><input type="number" id="cdmMobilePanelMarginBottom" class="cdm-input" value="0" min="0" style="width:100%;"> <span class="cdm-mini-label">Снизу</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Внутренние отступы плашки (px)</label>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+<div><input type="number" id="cdmMobilePanelPaddingTop" class="cdm-input" value="20" min="0" style="width:100%;"> <span class="cdm-mini-label">Сверху</span></div>
+<div><input type="number" id="cdmMobilePanelPaddingRight" class="cdm-input" value="20" min="0" style="width:100%;"> <span class="cdm-mini-label">Справа</span></div>
+<div><input type="number" id="cdmMobilePanelPaddingBottom" class="cdm-input" value="20" min="0" style="width:100%;"> <span class="cdm-mini-label">Снизу</span></div>
+<div><input type="number" id="cdmMobilePanelPaddingLeft" class="cdm-input" value="20" min="0" style="width:100%;"> <span class="cdm-mini-label">Слева</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Нижний отступ плашки <span id="mobilePanelBottomVal">0</span>px</label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmMobilePanelBottom" class="cdm-range" min="0" max="100" value="0" step="1">
+<div class="cdm-range-values"><span>0px</span><span>50px</span><span>100px</span></div>
+</div>
+</div>
+<div class="cdm-control-group">
+<label class="cdm-label">Скругление углов плашки <span id="mobilePanelRadiusVal">0</span>px</label>
+<div class="cdm-range-wrapper">
+<input type="range" id="cdmMobilePanelRadius" class="cdm-range" min="0" max="30" value="0" step="1">
+<div class="cdm-range-values"><span>0px</span><span>15px</span><span>30px</span></div>
+</div>
+</div>
+</div>
+<div class="cdm-control-group">
+<button id="cdmResetBtn" class="cdm-reset-btn"><i class="ph ph-trash" style="font-size:18px;"></i> Сбросить настройки</button>
+<button id="cdmApplyBtn" class="cdm-apply-btn">Применить</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="cdmCustomColorPopup" style="display: none; position: fixed; z-index: 10000;">
+<div style="background: #fff; border-radius: 12px; padding: 24px; width: 285px; border: 1px solid #ccccccab;">
+<h4 style="font-weight: 300; font-size: 14px; margin: 0 0 16px 0; color: #333;">Выбери свой цвет</h4>
+<input type="color" id="cdmCustomColorPicker" value="#333333" style="width: 100%; height: 50px; border: 1px solid #ccccccab; border-radius: 6px; cursor: pointer; background: #fff;">
+<div style="display: flex; align-items: center; gap: 6px; margin-top: 5px;  margin-left: 3px; margin-right: 3px;">
+<span style="font-size: 14px; font-weight: 300;">HEX:</span>
+<input type="text" id="cdmCustomColorHexInput" value="#333333" style="flex:1; padding: 8px 6px; border: 1px solid #ccccccab; border-radius: 6px; font-size: 14px; font-weight: 300; outline: none;">
+<i id="cdmCopyColorBtn" class="ph-light ph-paint-brush-broad copy-color-tooltip" style="font-size: 18px; cursor: pointer; color: #333;"></i>
+</div>
+<div style="display: flex; gap: 12px; margin-top: 8px;">
+<button id="cdmCustomColorConfirm" style="flex:1; background: #333; color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer;">Выбрать</button>
+<button id="cdmCustomColorCancel" style="flex:1; background: #f0f0f0; color: #333; border: none; padding: 10px; border-radius: 6px; cursor: pointer;">Отмена</button>
+</div>
+</div>
+</div>
+<style>
+body.cdm-generator-active {
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='dottedGrid' width='30' height='30' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='2' cy='2' r='1' fill='rgba(0,0,0,0.08)'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23dottedGrid)'/%3E%3C/svg%3E");
+background-color: #ffffff;
+margin: 0;
+min-height: 100vh;
+transition: background-color 0.3s ease, background-image 0.3s ease;
+}
+body.cdm-generator-active.dark-theme-body {
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='dottedGrid-dark' width='30' height='30' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='2' cy='2' r='1' fill='rgba(255,255,255,0.04)'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23dottedGrid-dark)'/%3E%3C/svg%3E");
+background-color: #1a1a1a;
+}
+.cdm-controls-col, .cdm-textarea, .cdm-input { overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none; }
+.cdm-controls-col::-webkit-scrollbar, .cdm-textarea::-webkit-scrollbar, .cdm-input::-webkit-scrollbar { display: none; }
+.cdm-live-dot { width: 6px; height: 6px; background-color: #77a5f7; border-radius: 50%; animation: cdm-pulse 1.5s infinite ease-in-out; flex-shrink: 0; }
+@keyframes cdm-pulse { 0% { opacity: 1; } 50% { opacity: 0.2; } 100% { opacity: 1; } }
+.cdm-color-palette { background: transparent; border-radius: 6px; padding: 12px 12px 6px 15px; border: 1px solid #3333331c; }
+.cdm-palette-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+.cdm-color-swatch { width: 19px; height: 19px; border-radius: 6px; cursor: pointer; transition: 0.1s; flex-shrink: 0; }
+.cdm-color-swatch:hover { transform: scale(1.05); }
+.cdm-custom-color-row { cursor: pointer; }
+.cdm-custom-color-row:hover { opacity: 0.8; }
+.cdm-opacity-row {
+display: flex;
+align-items: center;
+gap: 12px;
+padding: 10px 0;
+margin: 0;
+width: 100%;
+}
+.cdm-opacity-label-text {
+font-size: 14px;
+font-weight: 300;
+color: #333;
+white-space: nowrap;
+flex-shrink: 0;
+}
+.cdm-opacity-range {
+flex: 1;
+height: 2px;
+-webkit-appearance: none;
+appearance: none;
+background: rgba(16, 17, 20, 0.1) !important;
+border-radius: 3px;
+margin: 0;
+outline: none;
+}
+.cdm-opacity-range::-webkit-slider-thumb {
+-webkit-appearance: none;
+width: 12px;
+height: 12px;
+background: #333 !important;
+border-radius: 50%;
+cursor: pointer;
+border: 2px solid #fff;
+box-shadow: 0 0 0 1px #333;
+}
+.cdm-opacity-range::-moz-range-thumb {
+width: 12px;
+height: 12px;
+background: #333 !important;
+border-radius: 50%;
+cursor: pointer;
+border: 2px solid #fff;
+box-shadow: 0 0 0 1px #333;
+}
+.cdm-opacity-value {
+font-size: 12px;
+font-weight: 300;
+color: #666;
+min-width: 36px;
+text-align: right;
+flex-shrink: 0;
+}
+
+.cdm-slide-card {
+border: 1px solid #3333331c;
+border-radius: 6px;
+margin-bottom: 8px;
+overflow: hidden;
+}
+.cdm-slide-card-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 10px 12px;
+cursor: pointer;
+font-size: 14px;
+font-weight: 300;
+color: #333;
+background: transparent;
+user-select: none;
+}
+.cdm-slide-card-header .ph {
+font-size: 16px;
+transition: transform 0.2s;
+}
+.cdm-slide-card.open .cdm-slide-card-header .ph.cdm-slide-toggle {
+transform: rotate(180deg);
+}
+.cdm-slide-card-body {
+display: none;
+padding: 12px;
+border-top: 1px solid #3333331c;
+}
+.cdm-slide-card.open .cdm-slide-card-body {
+display: block;
+}
+.cdm-slide-card-header-left {
+display: flex;
+align-items: center;
+gap: 8px;
+}
+.cdm-slide-reorder-icon {
+font-size: 16px;
+cursor: pointer;
+color: #999;
+transition: color 0.2s;
+flex-shrink: 0;
+width: 16px;
+text-align: center;
+}
+.cdm-slide-reorder-icon:hover {
+color: #333;
+}
+.cdm-reorder-placeholder {
+visibility: hidden;
+pointer-events: none;
+width: 16px;
+display: inline-block;
+}
+
+.cdm-master * { box-sizing: border-box; }
+.cdm-two-columns { display: flex; flex-wrap: wrap; align-items: stretch; gap: 0; }
+.cdm-preview-col { flex: 2; min-width: 280px; background: transparent; padding: 24px; border: 0px solid #333; border-radius: 1px; margin-right: 0; }
+.cdm-controls-col {
+flex: 1;
+max-width: 400px;
+background: transparent !important;
+color: #333;
+border: 1px solid #3333331c;
+border-radius: 6px;
+position: relative;
+max-height: 85vh;
+}
+@media (min-width: 901px) {
+.cdm-preview-col {
+border-top-right-radius: 0;
+border-bottom-right-radius: 0;
+border-right: none;
+}
+.cdm-controls-col {
+border-top-left-radius: 6px;
+border-bottom-left-radius: 6px;
+border-left: 1px solid #3333331c;
+}
+}
+.cdm-controls-inner { padding: 24px; }
+.cdm-control-group { margin-bottom: 20px; }
+.cdm-label { display: block; font-size: 14px; font-weight: 300; color: #333; margin-bottom: 8px; }
+.cdm-textarea, .cdm-input { width: 100%; padding: 10px 12px; background: transparent !important; border: 1px solid #ccccccab; border-radius: 6px !important; color: #333 !important; font-size: 14px !important; font-weight: 300 !important; outline: none; box-shadow: none; font-family: 'Inter', sans-serif; }
+.cdm-textarea:focus, .cdm-input:focus { outline: none; border-color: #ccccccab; box-shadow: none; }
+.cdm-input[type="number"]::-webkit-outer-spin-button,
+.cdm-input[type="number"]::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.cdm-input[type="number"] {
+-moz-appearance: textfield;
+appearance: textfield;
+}
+.cdm-custom-select {
+position: relative;
+width: 100%;
+background: transparent;
+border: 1px solid #ccccccab;
+border-radius: 6px;
+cursor: pointer;
+user-select: none;
+}
+.cdm-select-trigger {
+padding: 10px 12px;
+font-size: 14px;
+font-weight: 300;
+color: #333;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.cdm-select-options {
+display: none;
+position: absolute;
+top: 100%;
+left: 0;
+right: 0;
+background: #fff;
+border: 1px solid #ccccccab;
+border-radius: 6px;
+margin-top: 4px;
+z-index: 100;
+box-shadow: none;
+max-height: 220px;
+overflow-y: auto;
+scrollbar-width: none;
+-ms-overflow-style: none;
+}
+.cdm-select-options::-webkit-scrollbar {
+display: none;
+}
+.cdm-custom-select.open .cdm-select-options {
+display: block;
+}
+.cdm-select-option {
+padding: 10px 12px;
+font-size: 14px;
+font-weight: 300;
+color: #333;
+transition: background 0.2s;
+}
+.cdm-select-option:hover {
+background: transparent;
+}
+.cdm-select-option.selected {
+background: transparent;
+font-weight: 400;
+}
+.cdm-range-wrapper { background: transparent; padding: 12px 12px 8px; border-radius: 6px; border: 1px solid #3333331f; }
+.cdm-range { width: 100%; height: 2px; -webkit-appearance: none; appearance: none; background: rgba(16, 17, 20, 0.1) !important; border-radius: 3px; outline: none; }
+.cdm-range::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; background: #333 !important; border-radius: 50%; cursor: pointer; border: 2px solid #fff; box-shadow: 0 0 0 1px #333; }
+.cdm-range::-moz-range-thumb { width: 12px; height: 12px; background: #333 !important; border-radius: 50%; cursor: pointer; border: 2px solid #fff; box-shadow: 0 0 0 1px #333; }
+.cdm-range-values { display: flex; justify-content: space-between; font-size: 10px; color: #1c1c1c; margin-top: 8px; font-weight: 300; }
+.cdm-reset-btn {
+width: 100%;
+background: transparent;
+border: 1px dashed #3333337a;
+color: #333;
+padding: 12px;
+border-radius: 6px;
+font-weight: 300;
+font-size: 14px;
+cursor: pointer;
+margin: 6px 0 1px;
+font-family: 'Inter', sans-serif;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+transition: none;
+}
+.cdm-reset-btn:hover {
+background: transparent;
+border-color: #3333337a;
+color: #333;
+}
+.cdm-reset-btn i {
+font-size: 18px;
+color: #333333c2;
+}
+.cdm-apply-btn {
+width: 100%;
+background: #333;
+border: none;
+color: white;
+padding: 14px;
+border-radius: 6px;
+font-weight: 300;
+font-size: 14px;
+cursor: pointer;
+margin: 12px 0 0;
+font-family: 'Inter', sans-serif;
+}
+.cdm-apply-btn:hover {
+background: #333;
+transform: none;
+}
+.cdm-device-icon { transition: all 0.2s; cursor: pointer; }
+.cdm-device-icon.active { color: #333; }
+.cdm-device-icon:not(.active) { color: #aaa; }
+.desktop-mock {
+margin: 0 auto;
+border-top: 1px solid #bdbdbd63;
+border-radius: 20px 20px 0px 0px;
+background: transparent;
+position: relative;
+width: 100%;
+max-width: 100%;
+border-left: 1px solid #bdbdbd63;
+border-right: 1px solid #bdbdbd63;
+display: flex;
+justify-content: center;
+padding-bottom: 120px;
+}
+.desktop-screen { background: transparent; border-radius: 12px; overflow: hidden; padding: 80px 20px; margin: 12px; display: flex; justify-content: center; transition: max-width 0.2s ease, padding 0.2s ease; box-sizing: border-box; width: 100%; }
+.desktop-screen .cdm-slider-preview { width: 100%; }
+.phone-mock { width: 380px; padding: 100px 0 0 0; background: transparent; border: 1px solid #bdbdbd63; border-bottom: none; border-top-right-radius: 30px; border-top-left-radius: 30px; position: relative; margin: 0 auto; height: auto; min-height: 501px; box-sizing: border-box; }
+.phone-mock .display-mock { height: auto; min-height: 100%; width: 100%; background: transparent; position: relative; overflow: hidden; padding: 20px 15px; }
+.copy-color-tooltip { position: relative; display: inline-block; }
+.copy-color-tooltip:hover::after {
+content: "Копировать цвет";
+position: absolute;
+bottom: 100%;
+left: 50%;
+transform: translateX(-50%);
+background: #fff;
+color: #333;
+border: 1px solid #3333331f;
+border-radius: 6px;
+padding: 8px 12px;
+font-size: 12px;
+font-weight: 300;
+white-space: nowrap;
+z-index: 100;
+margin-bottom: 8px;
+pointer-events: none;
+font-family: 'Inter', sans-serif;
+}
+body.dark-theme-body .copy-color-tooltip:hover::after {
+background: #2a2a2a;
+color: #e0e0e0;
+border-color: #555;
+}
+.cdm-switch.cdm-switch-sm {
+position: relative;
+display: inline-block;
+width: 30px;
+height: 16px;
+flex-shrink: 0;
+margin-left: -70px;
+}
+.cdm-switch.cdm-switch-sm input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.cdm-switch.cdm-switch-sm .cdm-slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: transparent;
+border: 1px solid #33333373;
+transition: .3s;
+border-radius: 20px;
+}
+.cdm-switch.cdm-switch-sm .cdm-slider:before {
+position: absolute;
+content: "";
+height: 10px;
+width: 10px;
+left: 2px;
+bottom: 2px;
+background: #33333373;
+transition: .3s;
+border-radius: 50%;
+}
+.cdm-switch.cdm-switch-sm input:checked + .cdm-slider {
+border-color: #33333373;
+background: transparent;
+}
+.cdm-switch.cdm-switch-sm input:checked + .cdm-slider:before {
+transform: translateX(14px);
+background: #333;
+}
+.cdm-master.dark-theme .cdm-switch.cdm-switch-sm .cdm-slider {
+border-color: #ffffff57;
+background: transparent;
+}
+.cdm-master.dark-theme .cdm-switch.cdm-switch-sm .cdm-slider:before {
+background: #ffffff57;
+}
+.cdm-master.dark-theme .cdm-switch.cdm-switch-sm input:checked + .cdm-slider {
+border-color: #ffffff57;
+background: transparent;
+}
+.cdm-master.dark-theme .cdm-switch.cdm-switch-sm input:checked + .cdm-slider:before {
+background: #fff;
+}
+.cdm-points-label.active { color: #333; }
+
+.cdm-slider-preview {
+position: relative;
+overflow: hidden;
+margin: 0 auto;
+}
+.cdm-slider-preview .cdm-sp-slide {
+width: 100%;
+height: 100%;
+position: absolute;
+top: 0;
+left: 0;
+opacity: 0;
+pointer-events: none;
+}
+.cdm-slider-preview .cdm-sp-slide img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.cdm-slider-preview .cdm-sp-panel {
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+padding: 20px 30px;
+box-sizing: border-box;
+}
+.cdm-slider-preview .cdm-sp-panel h5 {
+margin: 0;
+}
+.cdm-slider-preview .cdm-sp-panel p {
+margin-bottom: 10px;
+}
+
+.cdm-master.dark-theme {
+background: transparent !important;
+color: #e0e0e0;
+}
+.cdm-master.dark-theme .cdm-controls-col {
+border-color: #4444446e;
+}
+.cdm-master.dark-theme .cdm-controls-inner {
+background: transparent !important;
+}
+.cdm-master.dark-theme .cdm-preview-col {
+background: transparent;
+}
+.cdm-master.dark-theme h3,
+.cdm-master.dark-theme .cdm-label,
+.cdm-master.dark-theme .cdm-select-trigger,
+.cdm-master.dark-theme .cdm-select-option,
+.cdm-master.dark-theme .cdm-range-values span,
+.cdm-master.dark-theme .cdm-opacity-label-text,
+.cdm-master.dark-theme .cdm-opacity-value,
+.cdm-master.dark-theme .cdm-custom-color-row span,
+.cdm-master.dark-theme .cdm-custom-color-row i,
+.cdm-master.dark-theme .cdm-controls-inner h3 i,
+.cdm-master.dark-theme .cdm-slide-card-header,
+.cdm-master.dark-theme .cdm-slide-card-header span {
+color: #e0e0e0 !important;
+}
+.cdm-master.dark-theme .cdm-textarea,
+.cdm-master.dark-theme .cdm-input {
+background: transparent !important;
+border-color: #4444446e !important;
+color: #e0e0e0 !important;
+}
+.cdm-master.dark-theme .cdm-textarea:focus,
+.cdm-master.dark-theme .cdm-input:focus {
+border-color: #4444446e !important;
+outline: none;
+box-shadow: none;
+}
+.cdm-master.dark-theme .cdm-custom-select {
+border-color: #4444446e !important;
+}
+.cdm-master.dark-theme .cdm-select-options {
+background: #1a1a1a;
+border-color: #4444446e !important;
+}
+.cdm-master.dark-theme .cdm-select-option {
+color: #e0e0e0;
+}
+.cdm-master.dark-theme .cdm-select-option:hover {
+background: transparent;
+}
+.cdm-master.dark-theme .cdm-select-option.selected {
+background: transparent;
+}
+.cdm-master.dark-theme .cdm-range-wrapper {
+background: transparent !important;
+border-color: #4444446e !important;
+}
+.cdm-master.dark-theme .cdm-range {
+background: rgba(255, 255, 255, 0.12) !important;
+}
+.cdm-master.dark-theme .cdm-range::-webkit-slider-thumb {
+background: #ccc !important;
+border: 2px solid #1a1a1a;
+box-shadow: 0 0 0 1px #ccc;
+}
+.cdm-master.dark-theme .cdm-range::-moz-range-thumb {
+background: #ccc !important;
+border: 2px solid #1a1a1a;
+box-shadow: 0 0 0 1px #ccc;
+}
+.cdm-master.dark-theme .cdm-color-palette {
+background: transparent !important;
+border-color: #4444446e !important;
+}
+.cdm-master.dark-theme .cdm-apply-btn {
+background: #fff;
+color: #333;
+}
+.cdm-master.dark-theme .cdm-apply-btn:hover {
+background: #fff;
+}
+.cdm-master.dark-theme .cdm-reset-btn {
+border-color: #e0e0e0;
+color: #e0e0e0;
+}
+.cdm-master.dark-theme .cdm-reset-btn:hover {
+border-color: #e0e0e0;
+color: #e0e0e0;
+}
+.cdm-master.dark-theme .cdm-reset-btn i {
+color: #fff !important;
+}
+.cdm-master.dark-theme .cdm-device-icon.active { color: #fff; }
+.cdm-master.dark-theme .cdm-device-icon:not(.active) { color: #888; }
+.cdm-master.dark-theme .cdm-live-dot {
+background-color: #aaa;
+}
+.cdm-master.dark-theme #cdmThemeToggle {
+color: #ddd !important;
+}
+.cdm-master.dark-theme .cdm-color-swatch {
+border: 1px solid #55555540 !important;
+}
+.cdm-master.dark-theme .cdm-custom-color-row .customColorHexTextColor,
+.cdm-master.dark-theme .cdm-custom-color-row .customColorHexBgColor,
+.cdm-master.dark-theme .cdm-custom-color-row .customColorHexTitleColor,
+.cdm-master.dark-theme .cdm-custom-color-row .customColorHexDesktopBorderColor,
+.cdm-master.dark-theme .cdm-custom-color-row .customColorHexMobileBorderColor {
+color: #ddd !important;
+}
+.cdm-master.dark-theme .cdm-custom-color-row .customColorPreviewTextColor,
+.cdm-master.dark-theme .cdm-custom-color-row .customColorPreviewBgColor,
+.cdm-master.dark-theme .cdm-custom-color-row .customColorPreviewTitleColor,
+.cdm-master.dark-theme .cdm-custom-color-row .customColorPreviewDesktopBorderColor,
+.cdm-master.dark-theme .cdm-custom-color-row .customColorPreviewMobileBorderColor {
+border: 1px solid #55555552;
+}
+.cdm-master.dark-theme .cdm-opacity-row .cdm-opacity-range {
+background: rgba(255, 255, 255, 0.12) !important;
+}
+.cdm-master.dark-theme .cdm-opacity-row .cdm-opacity-range::-webkit-slider-thumb {
+background: #ccc !important;
+border: 2px solid #1a1a1a;
+box-shadow: 0 0 0 1px #ccc;
+}
+.cdm-master.dark-theme .cdm-opacity-row .cdm-opacity-range::-moz-range-thumb {
+background: #ccc !important;
+border: 2px solid #1a1a1a;
+box-shadow: 0 0 0 1px #ccc;
+}
+.cdm-master.dark-theme .cdm-two-columns .cdm-controls-col {
+border-color: #4444446e !important;
+}
+.cdm-master.dark-theme .cdm-two-columns .cdm-preview-col {
+border-color: #444 !important;
+}
+@media (min-width: 901px) {
+.cdm-master.dark-theme .cdm-controls-col {
+border-left-color: #4444446e !important;
+}
+}
+.cdm-master.dark-theme .cdm-points-label.active { color: #fff; }
+.cdm-master.dark-theme .desktop-mock {
+border-top-color: #bdbdbd1c;
+border-left-color: #bdbdbd1c;
+border-right-color: #bdbdbd1c;
+}
+.cdm-master.dark-theme .phone-mock {
+border-color: #bdbdbd1c;
+border-bottom: none;
+}
+.cdm-master.dark-theme .cdm-slide-card {
+border-color: #4444446e;
+}
+.cdm-master.dark-theme .cdm-slide-card-body {
+border-top-color: #4444446e;
+}
+.cdm-master.dark-theme .cdm-slide-reorder-icon {
+color: #999;
+}
+.cdm-master.dark-theme .cdm-slide-reorder-icon:hover {
+color: #ddd;
+}
+#cdmHelpPopup,
+#cdmFontHelpPopup,
+#cdmImgHelpPopup {
+background: #fff;
+border: 1px solid #ccccccab;
+box-shadow: none;
+}
+#cdmHelpPopup p,
+#cdmFontHelpPopup p,
+#cdmImgHelpPopup p {
+color: #333;
+}
+.cdm-master.dark-theme #cdmHelpPopup,
+.cdm-master.dark-theme #cdmFontHelpPopup,
+.cdm-master.dark-theme #cdmImgHelpPopup {
+background: #1a1a1a !important;
+border-color: #555 !important;
+}
+.cdm-master.dark-theme #cdmHelpPopup p,
+.cdm-master.dark-theme #cdmFontHelpPopup p,
+.cdm-master.dark-theme #cdmImgHelpPopup p {
+color: #e0e0e0 !important;
+}
+.cdm-marker-dot { background: rgba(0,0,0,0.35); }
+.cdm-marker-label { color: #888; }
+.cdm-master.dark-theme .cdm-marker-dot { background: rgba(255,255,255,0.35); }
+.cdm-master.dark-theme .cdm-marker-label { color: #aaa; }
+#cdmCustomColorPopup {
+border-radius: 12px !important;
+overflow: visible !important;
+}
+#cdmCustomColorPopup input[type="color"] {
+border: none !important;
+border-radius: 0 !important;
+}
+#cdmCustomColorPopup input[type="text"] {
+border: none !important;
+border-radius: 0 !important;
+}
+body.dark-theme-body #cdmCustomColorPopup {
+background: #1a1a1a !important;
+border-color: #555 !important;
+}
+body.dark-theme-body #cdmCustomColorPopup > div {
+background: transparent !important;
+border-color: #555 !important;
+}
+body.dark-theme-body #cdmCustomColorPopup h4 {
+color: #e0e0e0 !important;
+}
+body.dark-theme-body #cdmCustomColorPopup input[type="color"] {
+background: #1a1a1a !important;
+border: none !important;
+}
+body.dark-theme-body #cdmCustomColorPopup input[type="text"] {
+background: #1a1a1a !important;
+border: none !important;
+color: #e0e0e0 !important;
+}
+body.dark-theme-body #cdmCustomColorPopup .ph-paint-brush-broad {
+color: #ddd !important;
+}
+body.dark-theme-body #cdmCustomColorPopup button#cdmCustomColorConfirm {
+background: #555 !important;
+color: #fff !important;
+}
+body.dark-theme-body #cdmCustomColorPopup button#cdmCustomColorCancel {
+background: #444 !important;
+color: #ddd !important;
+}
+body.dark-theme-body #cdmCustomColorPopup span {
+color: #ddd !important;
+}
+.cdm-mini-label {
+font-size: 12px;
+color: #666;
+font-weight: 300;
+}
+.cdm-master.dark-theme .cdm-mini-label {
+color: #aaa;
+}
+.cdm-add-slide-btn {
+width: 100%;
+background: transparent;
+border: 1px dashed #3333337a;
+color: #333;
+padding: 12px;
+border-radius: 6px;
+font-weight: 300;
+font-size: 14px;
+cursor: pointer;
+margin: 0;
+font-family: 'Inter', sans-serif;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+transition: none;
+}
+.cdm-add-slide-btn:hover {
+background: transparent;
+border-color: #3333337a;
+color: #333;
+}
+.cdm-add-slide-btn i {
+font-size: 16px;
+margin-top: 1px;
+}
+.cdm-master.dark-theme .cdm-add-slide-btn {
+border-color: #e0e0e0;
+color: #e0e0e0;
+}
+.cdm-master.dark-theme .cdm-add-slide-btn:hover {
+border-color: #e0e0e0;
+color: #e0e0e0;
+}
+.cdm-delete-slide-btn {
+width: 100%;
+background: transparent;
+border: 1px dashed #3333337a;
+color: #333;
+padding: 10px;
+border-radius: 6px;
+font-weight: 300;
+font-size: 13px;
+cursor: pointer;
+margin-top: 10px;
+font-family: 'Inter', sans-serif;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+transition: none;
+}
+.cdm-delete-slide-btn:hover {
+background: transparent;
+border-color: #3333337a;
+color: #333;
+}
+.cdm-delete-slide-btn i {
+font-size: 16px;
+}
+.cdm-master.dark-theme .cdm-delete-slide-btn {
+border-color: #e0e0e0;
+color: #e0e0e0;
+}
+.cdm-master.dark-theme .cdm-delete-slide-btn:hover {
+border-color: #e0e0e0;
+color: #e0e0e0;
+}
+</style>
+<script>
+(function() {
+if (window.__sliderGeneratorLoaded) return;
+window.__sliderGeneratorLoaded = true;
+document.body.classList.add('cdm-generator-active');
+
+let slideIdCounter = 6;
+let slidesData = [
+{ id: 1, title: 'Заголовок', text: 'Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым.', img: 'https://s1.radikal.cloud/2026/09/02/2151867731a748e7072a6b80d1.jpg' },
+{ id: 2, title: 'Заголовок', text: 'Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику.', img: 'https://s2.radikal.cloud/2026/09/02/215186773441e6154a259f59da.jpg' },
+{ id: 3, title: 'Заголовок', text: 'Понимание сути ресурсосберегающих технологий позволяет выполнить важные задания по разработке экономической целесообразности решений.', img: 'https://s2.radikal.cloud/2026/09/02/21518811505cfda5e6d1a64223.jpg' },
+{ id: 4, title: 'Заголовок', text: 'В частности, перспективное планирование выявляет срочную потребность новых принципов формирования материально-технической и кадровой базы.', img: 'https://s1.radikal.cloud/2026/09/02/215202095642c1c4647b9fb8aa.jpg' },
+{ id: 5, title: 'Заголовок', text: 'Значимость проблем настолько очевидна, что постоянный количественный рост активности представляет собой интересный эксперимент проверки систем.', img: 'https://s1.radikal.cloud/2026/09/02/2151855194fee6527c8e548d47.jpg' }
+];
+
+const NEW_SLIDE_DEFAULT_IMG = 'https://s2.radikal.cloud/2026/09/05/1441b805bf34eb3f33a0.jpg';
+
+// DOM refs
+const sliderRadius = $('#cdmSliderRadius');
+const sliderRadiusVal = $('#sliderRadiusVal');
+const zoomScale = $('#cdmZoomScale');
+const zoomScaleVal = $('#zoomScaleVal');
+const totalTime = $('#cdmTotalTime');
+const totalTimeVal = $('#totalTimeVal');
+const bgOpacity = $('#cdmBgOpacity');
+const bgOpacityVal = $('#bgOpacityVal');
+const titleOpacity = $('#cdmTitleOpacity');
+const titleOpacityVal = $('#titleOpacityVal');
+const textOpacity = $('#cdmTextOpacity');
+const textOpacityVal = $('#textOpacityVal');
+
+const desktopWidth = $('#cdmDesktopWidth');
+const desktopWidthVal = $('#desktopWidthVal');
+const desktopHeight = $('#cdmDesktopHeight');
+const desktopHeightVal = $('#desktopHeightVal');
+const desktopTitleSize = $('#cdmDesktopTitleSize');
+const desktopTitleSizeVal = $('#desktopTitleSizeVal');
+const desktopTextSize = $('#cdmDesktopTextSize');
+const desktopTextSizeVal = $('#desktopTextSizeVal');
+const desktopTitleWeight = $('#cdmDesktopTitleWeight');
+const desktopTitleWeightVal = $('#desktopTitleWeightVal');
+const desktopTextWeight = $('#cdmDesktopTextWeight');
+const desktopTextWeightVal = $('#desktopTextWeightVal');
+const desktopTextMargin = $('#cdmDesktopTextMargin');
+const desktopTextMarginVal = $('#desktopTextMarginVal');
+const desktopBorderWidth = $('#cdmDesktopBorderWidth');
+const desktopBorderWidthVal = $('#desktopBorderWidthVal');
+const desktopPanelMarginRight = $('#cdmDesktopPanelMarginRight');
+const desktopPanelMarginLeft = $('#cdmDesktopPanelMarginLeft');
+const desktopPanelMarginBottom = $('#cdmDesktopPanelMarginBottom');
+const desktopPanelPaddingTop = $('#cdmDesktopPanelPaddingTop');
+const desktopPanelPaddingRight = $('#cdmDesktopPanelPaddingRight');
+const desktopPanelPaddingBottom = $('#cdmDesktopPanelPaddingBottom');
+const desktopPanelPaddingLeft = $('#cdmDesktopPanelPaddingLeft');
+const desktopPanelBottom = $('#cdmDesktopPanelBottom');
+const desktopPanelBottomVal = $('#desktopPanelBottomVal');
+const desktopPanelRadius = $('#cdmDesktopPanelRadius');
+const desktopPanelRadiusVal = $('#desktopPanelRadiusVal');
+const desktopBorderOpacity = $('#cdmDesktopBorderOpacity');
+const desktopBorderOpacityVal = $('#desktopBorderOpacityVal');
+
+const mobileWidth = $('#cdmMobileWidth');
+const mobileWidthVal = $('#mobileWidthVal');
+const mobileHeight = $('#cdmMobileHeight');
+const mobileHeightVal = $('#mobileHeightVal');
+const mobileTitleSize = $('#cdmMobileTitleSize');
+const mobileTitleSizeVal = $('#mobileTitleSizeVal');
+const mobileTextSize = $('#cdmMobileTextSize');
+const mobileTextSizeVal = $('#mobileTextSizeVal');
+const mobileTitleWeight = $('#cdmMobileTitleWeight');
+const mobileTitleWeightVal = $('#mobileTitleWeightVal');
+const mobileTextWeight = $('#cdmMobileTextWeight');
+const mobileTextWeightVal = $('#mobileTextWeightVal');
+const mobileTextMargin = $('#cdmMobileTextMargin');
+const mobileTextMarginVal = $('#mobileTextMarginVal');
+const mobileBorderWidth = $('#cdmMobileBorderWidth');
+const mobileBorderWidthVal = $('#mobileBorderWidthVal');
+const mobilePanelMarginRight = $('#cdmMobilePanelMarginRight');
+const mobilePanelMarginLeft = $('#cdmMobilePanelMarginLeft');
+const mobilePanelMarginBottom = $('#cdmMobilePanelMarginBottom');
+const mobilePanelPaddingTop = $('#cdmMobilePanelPaddingTop');
+const mobilePanelPaddingRight = $('#cdmMobilePanelPaddingRight');
+const mobilePanelPaddingBottom = $('#cdmMobilePanelPaddingBottom');
+const mobilePanelPaddingLeft = $('#cdmMobilePanelPaddingLeft');
+const mobilePanelBottom = $('#cdmMobilePanelBottom');
+const mobilePanelBottomVal = $('#mobilePanelBottomVal');
+const mobilePanelRadius = $('#cdmMobilePanelRadius');
+const mobilePanelRadiusVal = $('#mobilePanelRadiusVal');
+const mobileBorderOpacity = $('#cdmMobileBorderOpacity');
+const mobileBorderOpacityVal = $('#mobileBorderOpacityVal');
+
+let bgColor = '#ffffff';
+let titleColor = '#333333';
+let textColor = '#333333';
+let desktopBorderColor = '#cccccc';
+let mobileBorderColor = '#cccccc';
+let previewMode = 'desktop';
+let pointsEnabled = false;
+let selectedFont = 'none';
+let desktopTitleAlign = 'left';
+let desktopTextAlign = 'left';
+let mobileTitleAlign = 'left';
+let mobileTextAlign = 'left';
+
+const MARKERS = [
+{ value: 1020, margin: 100 },
+{ value: 820,  margin: 175 },
+{ value: 720,  margin: 225 },
+{ value: 620,  margin: 275 }
+];
+
+function escapeHtml(str) {
+if (!str) return '';
+return str.replace(/[&<>"']/g, function(m) {
+if (m === '&') return '&amp;';
+if (m === '<') return '&lt;';
+if (m === '>') return '&gt;';
+if (m === '"') return '&quot;';
+if (m === "'") return '&#39;';
+return m;
+});
+}
+
+function escapeJs(str) {
+if (!str) return '';
+return str.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/'/g, "\\'").replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+}
+
+function hexToRgba(hex, opacityPercent) {
+hex = hex.replace('#', '');
+if (hex.length === 3) {
+hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+}
+const r = parseInt(hex.substring(0, 2), 16);
+const g = parseInt(hex.substring(2, 4), 16);
+const b = parseInt(hex.substring(4, 6), 16);
+const a = (100 - opacityPercent) / 100;
+return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')';
+}
+
+function generateRandomSuffix(length) {
+if (length === undefined) length = 15;
+var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+var result = '';
+for (var i = 0; i < length; i++) {
+result += chars.charAt(Math.floor(Math.random() * chars.length));
+}
+return result;
+}
+
+function renderSlides() {
+var container = $('#cdmSlidesContainer');
+container.empty();
+var len = slidesData.length;
+for (var i = 0; i < len; i++) {
+var s = slidesData[i];
+var isFirst = (i === 0);
+var isLast = (i === len - 1);
+var reorderIcon = '';
+if (len === 1) {
+reorderIcon = '<i class="ph ph-arrow-up cdm-slide-reorder-icon cdm-reorder-placeholder" data-index="' + i + '" data-dir="up"></i><i class="ph ph-arrow-down cdm-slide-reorder-icon cdm-reorder-placeholder" data-index="' + i + '" data-dir="down"></i>';
+} else if (isFirst) {
+reorderIcon = '<i class="ph ph-arrow-up cdm-slide-reorder-icon cdm-reorder-placeholder" data-index="' + i + '" data-dir="up"></i><i class="ph ph-arrow-down cdm-slide-reorder-icon" data-index="' + i + '" data-dir="down"></i>';
+} else if (isLast) {
+reorderIcon = '<i class="ph ph-arrow-up cdm-slide-reorder-icon" data-index="' + i + '" data-dir="up"></i><i class="ph ph-arrow-down cdm-slide-reorder-icon cdm-reorder-placeholder" data-index="' + i + '" data-dir="down"></i>';
+} else {
+reorderIcon = '<i class="ph ph-arrow-up cdm-slide-reorder-icon" data-index="' + i + '" data-dir="up"></i><i class="ph ph-arrow-down cdm-slide-reorder-icon" data-index="' + i + '" data-dir="down"></i>';
+}
+var deleteBtnStyle = (len <= 1) ? ' style="display:none;"' : '';
+var card = $('<div class="cdm-slide-card" data-slide-id="' + s.id + '">' +
+'<div class="cdm-slide-card-header">' +
+'<div class="cdm-slide-card-header-left">' +
+reorderIcon +
+'<span>Слайд ' + s.id + '</span>' +
+'</div>' +
+'<i class="ph ph-caret-down cdm-slide-toggle"></i>' +
+'</div>' +
+'<div class="cdm-slide-card-body">' +
+'<div style="margin-bottom:10px;">' +
+'<label class="cdm-label" style="font-size:13px;">Заголовок слайда</label>' +
+'<input type="text" class="cdm-input cdm-slide-title" value="' + escapeHtml(s.title) + '" placeholder="Введите заголовок">' +
+'</div>' +
+'<div style="margin-bottom:10px;">' +
+'<label class="cdm-label" style="font-size:13px;">Текст слайда</label>' +
+'<textarea rows="2" class="cdm-textarea cdm-slide-text" placeholder="Введите текст слайда">' + escapeHtml(s.text) + '</textarea>' +
+'</div>' +
+'<div style="margin-bottom:0;">' +
+'<label class="cdm-label" style="font-size:13px;">URL изображения <i class="ph ph-question cdm-img-help-icon" style="font-size:14px; vertical-align:middle; cursor:pointer; margin-left:4px;"></i></label>' +
+'<input type="text" class="cdm-input cdm-slide-img" value="" placeholder="Вставь ссылку на свою картинку">' +
+'</div>' +
+'<button class="cdm-delete-slide-btn" data-slide-id="' + s.id + '"' + deleteBtnStyle + '><i class="ph ph-trash"></i> Удалить слайд</button>' +
+'</div>' +
+'</div>');
+container.append(card);
+}
+// Slide card accordion
+container.find('.cdm-slide-card-header').off('click').on('click', function(e) {
+if ($(e.target).closest('.cdm-slide-reorder-icon').length) return;
+$(this).parent('.cdm-slide-card').toggleClass('open');
+});
+container.find('.cdm-delete-slide-btn').off('click').on('click', function(e) {
+e.stopPropagation();
+var sid = parseInt($(this).data('slide-id'), 10);
+if (slidesData.length <= 1) return;
+slidesData = $.grep(slidesData, function(el) { return el.id !== sid; });
+renderSlides();
+bindSlideInputs();
+updateAll();
+});
+// Reorder icons
+container.find('.cdm-slide-reorder-icon').off('click').on('click', function(e) {
+e.stopPropagation();
+var idx = parseInt($(this).data('index'), 10);
+var dir = $(this).data('dir');
+if (dir === 'up' && idx > 0) {
+var temp = slidesData[idx];
+slidesData[idx] = slidesData[idx - 1];
+slidesData[idx - 1] = temp;
+} else if (dir === 'down' && idx < slidesData.length - 1) {
+var temp = slidesData[idx];
+slidesData[idx] = slidesData[idx + 1];
+slidesData[idx + 1] = temp;
+}
+renderSlides();
+bindSlideInputs();
+updateAll();
+});
+bindSlideInputs();
+}
+
+function bindSlideInputs() {
+$('.cdm-slide-title, .cdm-slide-text, .cdm-slide-img').off('input.slide').on('input.slide', function() {
+var card = $(this).closest('.cdm-slide-card');
+var sid = parseInt(card.data('slide-id'), 10);
+var obj = null;
+for (var j = 0; j < slidesData.length; j++) {
+if (slidesData[j].id === sid) { obj = slidesData[j]; break; }
+}
+if (!obj) return;
+obj.title = card.find('.cdm-slide-title').val();
+obj.text = card.find('.cdm-slide-text').val();
+var imgVal = card.find('.cdm-slide-img').val();
+if (imgVal.trim() !== '') obj.img = imgVal;
+updateAll();
+});
+}
+
+$('#cdmAddSlideBtn').on('click', function() {
+var newId = slideIdCounter++;
+slidesData.push({ id: newId, title: 'Новый слайд', text: 'Текст нового слайда', img: NEW_SLIDE_DEFAULT_IMG });
+renderSlides();
+bindSlideInputs();
+$('#cdmSlidesContainer .cdm-slide-card:last').addClass('open');
+updateAll();
+});
+
+function updateRangeDisplays() {
+sliderRadiusVal.text(sliderRadius.val());
+zoomScaleVal.text(zoomScale.val());
+totalTimeVal.text(totalTime.val());
+bgOpacityVal.text(bgOpacity.val() + '%');
+titleOpacityVal.text(titleOpacity.val() + '%');
+textOpacityVal.text(textOpacity.val() + '%');
+desktopWidthVal.text(desktopWidth.val());
+desktopHeightVal.text(desktopHeight.val());
+desktopTitleSizeVal.text(desktopTitleSize.val());
+desktopTextSizeVal.text(desktopTextSize.val());
+desktopTitleWeightVal.text(desktopTitleWeight.val());
+desktopTextWeightVal.text(desktopTextWeight.val());
+desktopTextMarginVal.text(desktopTextMargin.val());
+desktopBorderWidthVal.text(desktopBorderWidth.val());
+desktopBorderOpacityVal.text(desktopBorderOpacity.val() + '%');
+desktopPanelBottomVal.text(desktopPanelBottom.val());
+desktopPanelRadiusVal.text(desktopPanelRadius.val());
+mobileWidthVal.text(mobileWidth.val());
+mobileHeightVal.text(mobileHeight.val());
+mobileTitleSizeVal.text(mobileTitleSize.val());
+mobileTextSizeVal.text(mobileTextSize.val());
+mobileTitleWeightVal.text(mobileTitleWeight.val());
+mobileTextWeightVal.text(mobileTextWeight.val());
+mobileTextMarginVal.text(mobileTextMargin.val());
+mobileBorderWidthVal.text(mobileBorderWidth.val());
+mobileBorderOpacityVal.text(mobileBorderOpacity.val() + '%');
+mobilePanelBottomVal.text(mobilePanelBottom.val());
+mobilePanelRadiusVal.text(mobilePanelRadius.val());
+}
+
+function getSlideData() {
+var slides = [];
+$('#cdmSlidesContainer .cdm-slide-card').each(function() {
+var sid = parseInt($(this).data('slide-id'), 10);
+var obj = null;
+for (var j = 0; j < slidesData.length; j++) {
+if (slidesData[j].id === sid) { obj = slidesData[j]; break; }
+}
+if (obj) slides.push(obj);
+});
+return slides;
+}
+
+function updatePreview() {
+var container = $('#cdmLivePreview');
+container.empty();
+
+var useMobile = (previewMode === 'mobile');
+var slides = getSlideData();
+var slideCount = slides.length;
+if (slideCount < 1) slideCount = 1;
+
+var sWidth = useMobile ? mobileWidth.val() + '%' : desktopWidth.val() + '%';
+var sHeight = useMobile ? mobileHeight.val() + 'px' : desktopHeight.val() + 'px';
+var tSize = useMobile ? mobileTitleSize.val() + 'px' : desktopTitleSize.val() + 'px';
+var txSize = useMobile ? mobileTextSize.val() + 'px' : desktopTextSize.val() + 'px';
+var tWeight = useMobile ? mobileTitleWeight.val() : desktopTitleWeight.val();
+var txWeight = useMobile ? mobileTextWeight.val() : desktopTextWeight.val();
+var txMargin = useMobile ? mobileTextMargin.val() + 'px' : desktopTextMargin.val() + 'px';
+var radius = sliderRadius.val() + 'px';
+var bgRgba = hexToRgba(bgColor, bgOpacity.val());
+var titleRgba = hexToRgba(titleColor, titleOpacity.val());
+var textRgba = hexToRgba(textColor, textOpacity.val());
+var bWidth = useMobile ? mobileBorderWidth.val() + 'px' : desktopBorderWidth.val() + 'px';
+var bOpacity = useMobile ? mobileBorderOpacity.val() : desktopBorderOpacity.val();
+var bColor = hexToRgba(useMobile ? mobileBorderColor : desktopBorderColor, bOpacity);
+var tAlign = useMobile ? mobileTitleAlign : desktopTitleAlign;
+var txAlign = useMobile ? mobileTextAlign : desktopTextAlign;
+var panelMR = useMobile ? mobilePanelMarginRight.val() + 'px' : desktopPanelMarginRight.val() + 'px';
+var panelML = useMobile ? mobilePanelMarginLeft.val() + 'px' : desktopPanelMarginLeft.val() + 'px';
+var panelMB = useMobile ? mobilePanelMarginBottom.val() + 'px' : desktopPanelMarginBottom.val() + 'px';
+var panelPT = useMobile ? mobilePanelPaddingTop.val() + 'px' : desktopPanelPaddingTop.val() + 'px';
+var panelPR = useMobile ? mobilePanelPaddingRight.val() + 'px' : desktopPanelPaddingRight.val() + 'px';
+var panelPB = useMobile ? mobilePanelPaddingBottom.val() + 'px' : desktopPanelPaddingBottom.val() + 'px';
+var panelPL = useMobile ? mobilePanelPaddingLeft.val() + 'px' : desktopPanelPaddingLeft.val() + 'px';
+var panelBottom = useMobile ? mobilePanelBottom.val() + 'px' : desktopPanelBottom.val() + 'px';
+var panelRadius = useMobile ? mobilePanelRadius.val() + 'px' : desktopPanelRadius.val() + 'px';
+
+var totalSec = parseInt(totalTime.val(), 10);
+if (totalSec < 15) totalSec = 15;
+var delayStep = totalSec / slideCount;
+
+var slidesHtml = '';
+for (var i = 0; i < slideCount; i++) {
+var s = slides[i] || { title: 'Заголовок ' + (i+1), text: '', img: '' };
+var delay = i * delayStep;
+var animDur = totalSec + 's';
+slidesHtml += '<div class="cdm-sp-slide" style="animation: cdm-sp-slideanim ' + animDur + ' infinite; animation-delay: ' + delay + 's;">' +
+'<img src="' + escapeHtml(s.img) + '" alt="" style="animation: cdm-sp-zoom ' + animDur + ' infinite; animation-delay: ' + delay + 's;">' +
+'<div class="cdm-sp-panel" style="background: ' + bgRgba + '; border-radius:' + panelRadius + '; bottom:' + panelBottom + '; left:' + panelML + '; right:' + panelMR + '; width:auto; padding:' + panelPT + ' ' + panelPR + ' ' + panelPB + ' ' + panelPL + ';">' +
+'<h5 style="font-size:' + tSize + '; color:' + titleRgba + '; font-weight:' + tWeight + '; margin-bottom:' + txMargin + '; text-align:' + tAlign + ';">' + escapeHtml(s.title) + '</h5>' +
+'<p style="font-size:' + txSize + '; color:' + textRgba + '; font-weight:' + txWeight + '; margin:0; text-align:' + txAlign + ';">' + escapeHtml(s.text) + '</p>' +
+'</div>' +
+'</div>';
+}
+
+var contentHtml = '<div class="cdm-slider-preview" style="width:100%; height:' + sHeight + '; border-radius:' + radius + '; position:relative; overflow:hidden; margin:0 auto; border:' + bWidth + ' solid ' + bColor + ';">' + slidesHtml + '</div>';
+
+var finalHtml = '';
+if (previewMode === 'desktop') {
+finalHtml = '<div class="desktop-mock"><div class="desktop-screen"><div class="cdm-content-wrapper" style="width:' + sWidth + '; margin:0 auto;">' + contentHtml + '</div></div></div>';
+} else {
+finalHtml = '<div class="phone-mock"><div class="display-mock"><div class="cdm-content-wrapper" style="width:' + mobileWidth.val() + '%; margin:0 auto;">' + contentHtml + '</div></div></div>';
+}
+container.html(finalHtml);
+
+if (selectedFont !== 'none') {
+var fontClass = 'cdm-font-' + selectedFont.toLowerCase().replace(/\s/g, '');
+container.find('.desktop-screen, .display-mock').addClass(fontClass);
+} else {
+container.find('.desktop-screen, .display-mock').removeClass(function(index, className) {
+return (className.match(/cdm-font-\S+/g) || []).join(' ');
+});
+}
+
+if (previewMode === 'desktop') {
+var mock = container.find('.desktop-mock');
+var screen = mock.find('.desktop-screen');
+mock.find('.width-markers-container').remove();
+if (pointsEnabled) {
+var activeW = parseInt(container.data('active-width') || 1020, 10);
+screen.css('padding', '80px 20px').css('max-width', activeW + 'px');
+var markersContainer = $('<div class="width-markers-container" style="position:absolute; top:0; left:0; width:100%; height:0; pointer-events:none; overflow:visible; z-index:10;"></div>');
+MARKERS.forEach(function(marker) {
+var percent = (marker.margin / 1020) * 100;
+var dotLeft = $('<div class="cdm-marker-dot" data-width="' + marker.value + '" style="position:absolute; top:0; left:' + percent + '%; width:6px; height:6px; border-radius:50%; transform:translate(-50%, -50%); pointer-events:auto; cursor:pointer;"></div>');
+var dotRight = $('<div class="cdm-marker-dot" data-width="' + marker.value + '" style="position:absolute; top:0; right:' + percent + '%; width:6px; height:6px; border-radius:50%; transform:translate(50%, -50%); pointer-events:auto; cursor:pointer;"></div>');
+var labelLeft = $('<span class="cdm-marker-label" data-width="' + marker.value + '" style="position:absolute; bottom:100%; left:' + percent + '%; transform:translateX(-50%); margin-bottom:4px; font-size:9px; font-weight:300; white-space:nowrap; pointer-events:none;">' + marker.value + '</span>');
+var labelRight = $('<span class="cdm-marker-label" data-width="' + marker.value + '" style="position:absolute; bottom:100%; right:' + percent + '%; transform:translateX(50%); margin-bottom:4px; font-size:9px; font-weight:300; white-space:nowrap; pointer-events:none;">' + marker.value + '</span>');
+markersContainer.append(dotLeft, dotRight, labelLeft, labelRight);
+});
+mock.append(markersContainer);
+function updateDisplay() {
+var isDark = $('.cdm-master').hasClass('dark-theme');
+var dotColor = isDark ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.35)';
+var labelColorM = isDark ? '#aaa' : '#888';
+var activeDotColor = isDark ? '#fff' : '#333';
+var activeLabelColorM = isDark ? '#fff' : '#333';
+var activeW = parseInt(container.data('active-width') || 1020, 10);
+mock.find('.cdm-marker-dot').css('background', dotColor);
+mock.find('.cdm-marker-label').css('color', labelColorM);
+mock.find('.cdm-marker-dot[data-width="' + activeW + '"]').css('background', activeDotColor);
+mock.find('.cdm-marker-label[data-width="' + activeW + '"]').css('color', activeLabelColorM);
+}
+updateDisplay();
+mock.find('.cdm-marker-dot').off('click').on('click', function(e) {
+e.stopPropagation();
+if (!pointsEnabled) return;
+var widthVal = parseInt($(this).data('width'), 10);
+var current = container.data('active-width') || 1020;
+if (current === widthVal) {
+container.data('active-width', 1020);
+} else {
+container.data('active-width', widthVal);
+}
+updatePreview();
+});
+} else {
+screen.css('padding', '80px 80px').css('max-width', '');
+}
+} else {
+var mockMobile = container.find('.phone-mock');
+mockMobile.find('.mobile-marker-container').remove();
+if (pointsEnabled) {
+var isDark = $('.cdm-master').hasClass('dark-theme');
+var dotColor = isDark ? '#fff' : '#333';
+var labelColorMob = isDark ? '#fff' : '#333';
+var mobileContainer = $('<div class="mobile-marker-container" style="position:absolute; top:0; left:0; width:100%; height:0; pointer-events:none; overflow:visible; z-index:10;"></div>');
+var dotMob = $('<div style="position:absolute; top:0; left:50%; width:6px; height:6px; border-radius:50%; background:' + dotColor + '; transform:translate(-50%, -50%);"></div>');
+var labelMob = $('<span style="position:absolute; bottom:100%; left:50%; transform:translateX(-50%); margin-bottom:4px; font-size:9px; color:' + labelColorMob + '; font-weight:300; white-space:nowrap;">480</span>');
+mobileContainer.append(dotMob, labelMob);
+mockMobile.append(mobileContainer);
+}
+}
+}
+
+function generateFinalCode() {
+var suffix = generateRandomSuffix(15);
+currentSuffix = suffix;
+var slides = getSlideData();
+var slideCount = slides.length;
+if (slideCount < 1) slideCount = 1;
+var useMobile = false;
+var totalSec = parseInt(totalTime.val(), 10);
+if (totalSec < 15) totalSec = 15;
+var delayStep = totalSec / slideCount;
+var zoomVal = parseFloat(zoomScale.val());
+var radius = sliderRadius.val();
+var bgRgba = hexToRgba(bgColor, bgOpacity.val());
+var titleRgba = hexToRgba(titleColor, titleOpacity.val());
+var textRgba = hexToRgba(textColor, textOpacity.val());
+
+var slidesHtml = '';
+for (var i = 0; i < slideCount; i++) {
+var s = slides[i];
+var imgSrc = s.img || ('https://placehold.co/800x600?text=Slide+' + (i+1));
+var imgAlt = 'Слайд ' + (i+1);
+slidesHtml += '<div class="cdm-' + suffix + '-2">\n<img src="' + escapeHtml(imgSrc) + '" alt="' + imgAlt + '">\n<div class="cdm-' + suffix + '-3">\n<h5>' + escapeHtml(s.title) + '</h5>\n<p>' + escapeHtml(s.text) + '</p>\n</div>\n</div>';
+}
+
+var animDelaysCss = '';
+for (var i = 0; i < slideCount; i++) {
+var delay = i * delayStep;
+animDelaysCss += '.cdm-' + suffix + '-2:nth-child(' + (i+1) + '),\n.cdm-' + suffix + '-2:nth-child(' + (i+1) + ') img {\n-webkit-animation-delay: ' + delay + 's;\nanimation-delay: ' + delay + 's;\n}\n';
+}
+
+var deskW = desktopWidth.val();
+var deskH = desktopHeight.val();
+var deskTSize = desktopTitleSize.val();
+var deskTxSize = desktopTextSize.val();
+var deskTWeight = desktopTitleWeight.val();
+var deskTxWeight = desktopTextWeight.val();
+var deskTxMargin = desktopTextMargin.val();
+var deskBW = desktopBorderWidth.val();
+var deskPanelMR = desktopPanelMarginRight.val();
+var deskPanelML = desktopPanelMarginLeft.val();
+var deskPanelMB = desktopPanelMarginBottom.val();
+var deskPanelPT = desktopPanelPaddingTop.val();
+var deskPanelPR = desktopPanelPaddingRight.val();
+var deskPanelPB = desktopPanelPaddingBottom.val();
+var deskPanelPL = desktopPanelPaddingLeft.val();
+var deskPanelBottom = desktopPanelBottom.val();
+var deskPanelRadius = desktopPanelRadius.val();
+var deskBorderRgba = hexToRgba(desktopBorderColor, desktopBorderOpacity.val());
+
+var mobW = mobileWidth.val();
+var mobH = mobileHeight.val();
+var mobTSize = mobileTitleSize.val();
+var mobTxSize = mobileTextSize.val();
+var mobTWeight = mobileTitleWeight.val();
+var mobTxWeight = mobileTextWeight.val();
+var mobTxMargin = mobileTextMargin.val();
+var mobBW = mobileBorderWidth.val();
+var mobPanelMR = mobilePanelMarginRight.val();
+var mobPanelML = mobilePanelMarginLeft.val();
+var mobPanelMB = mobilePanelMarginBottom.val();
+var mobPanelPT = mobilePanelPaddingTop.val();
+var mobPanelPR = mobilePanelPaddingRight.val();
+var mobPanelPB = mobilePanelPaddingBottom.val();
+var mobPanelPL = mobilePanelPaddingLeft.val();
+var mobPanelBottom = mobilePanelBottom.val();
+var mobPanelRadius = mobilePanelRadius.val();
+var mobBorderRgba = hexToRgba(mobileBorderColor, mobileBorderOpacity.val());
+
+var panelPadding = deskPanelPT + 'px ' + deskPanelPR + 'px ' + deskPanelPB + 'px ' + deskPanelPL + 'px';
+var panelMargin = '0 ' + deskPanelMR + 'px ' + deskPanelMB + 'px ' + deskPanelML + 'px';
+
+var code = '<script src="https://unpkg.com/@phosphor-icons/web"><\/script>\n' +
+'<div class="cdm-' + suffix + '-1">\n' +
+slidesHtml +
+'</div>\n' +
+'<style>\n' +
+':root {\n' +
+'--cdm-' + suffix + '-1: ' + deskW + '%;\n' +
+'--cdm-' + suffix + '-2: ' + deskH + 'px;\n' +
+'--cdm-' + suffix + '-5: ' + deskPanelBottom + 'px;\n' +
+'--cdm-' + suffix + '-6: ' + bgRgba + ';\n' +
+'--cdm-' + suffix + '-7: ' + textRgba + ';\n' +
+'--cdm-' + suffix + '-8: ' + panelPadding + ';\n' +
+'--cdm-' + suffix + '-9: ' + deskTSize + 'px;\n' +
+'--cdm-' + suffix + '-10: ' + titleRgba + ';\n' +
+'--cdm-' + suffix + '-11: ' + deskTxWeight + ';\n' +
+'--cdm-' + suffix + '-12: ' + deskTxSize + 'px;\n' +
+'--cdm-' + suffix + '-13: ' + deskTWeight + ';\n' +
+'--cdm-' + suffix + '-14: ' + radius + 'px;\n' +
+'--cdm-' + suffix + '-15: ' + deskTxMargin + 'px;\n' +
+'--cdm-' + suffix + '-16: ' + deskBW + 'px;\n' +
+'--cdm-' + suffix + '-17: ' + deskBorderRgba + ';\n' +
+'--cdm-' + suffix + '-18: ' + deskPanelRadius + 'px;\n' +
+'--cdm-' + suffix + '-19: ' + deskPanelML + 'px;\n' +
+'--cdm-' + suffix + '-20: ' + deskPanelMR + 'px;\n' +
+'--cdm-' + suffix + '-21: ' + deskPanelMB + 'px;\n' +
+'--cdm-' + suffix + '-22: ' + deskPanelPT + 'px;\n' +
+'--cdm-' + suffix + '-23: ' + deskPanelPR + 'px;\n' +
+'--cdm-' + suffix + '-24: ' + deskPanelPB + 'px;\n' +
+'--cdm-' + suffix + '-25: ' + deskPanelPL + 'px;\n' +
+'--cdm-' + suffix + '-26: ' + desktopTitleAlign + ';\n' +
+'--cdm-' + suffix + '-27: ' + desktopTextAlign + ';\n' +
+'}\n' +
+'.cdm-' + suffix + '-1 {\n' +
+'width: var(--cdm-' + suffix + '-1);\n' +
+'height: var(--cdm-' + suffix + '-2);\n' +
+'position: relative;\n' +
+'overflow: hidden;\n' +
+'background: #fff;\n' +
+'margin: 0 auto;\n' +
+'border-radius: var(--cdm-' + suffix + '-14);\n' +
+'border: var(--cdm-' + suffix + '-16) solid var(--cdm-' + suffix + '-17);\n' +
+'}\n' +
+'.cdm-' + suffix + '-2 {\n' +
+'width: 100%;\n' +
+'height: 100%;\n' +
+'position: absolute;\n' +
+'top: 0;\n' +
+'left: 0;\n' +
+'opacity: 0;\n' +
+'-webkit-animation: slideanim-' + suffix + ' ' + totalSec + 's infinite;\n' +
+'animation: slideanim-' + suffix + ' ' + totalSec + 's infinite;\n' +
+'pointer-events: none;\n' +
+'}\n' +
+animDelaysCss +
+'.cdm-' + suffix + '-2 img {\n' +
+'width: 100%;\n' +
+'height: 100%;\n' +
+'-o-object-fit: cover;\n' +
+'object-fit: cover;\n' +
+'-webkit-animation: zoom-' + suffix + ' ' + totalSec + 's infinite;\n' +
+'animation: zoom-' + suffix + ' ' + totalSec + 's infinite;\n' +
+'}\n' +
+'.cdm-' + suffix + '-3 {\n' +
+'width: 100%;\n' +
+'max-width: 100%;\n' +
+'position: absolute;\n' +
+'bottom: var(--cdm-' + suffix + '-5);\n' +
+'background-color: var(--cdm-' + suffix + '-6);\n' +
+'padding: var(--cdm-' + suffix + '-8);\n' +
+'box-sizing: border-box;\n' +
+'border-radius: var(--cdm-' + suffix + '-18);\n' +
+'left: var(--cdm-' + suffix + '-19);\n' +
+'right: var(--cdm-' + suffix + '-20);\n' +
+'width: auto;\n' +
+'}\n' +
+'.cdm-' + suffix + '-3 h5 {\n' +
+'font-size: var(--cdm-' + suffix + '-9);\n' +
+'margin: 0 0 var(--cdm-' + suffix + '-15) 0;\n' +
+'color: var(--cdm-' + suffix + '-10);\n' +
+'font-weight: var(--cdm-' + suffix + '-13);\n' +
+'text-align: var(--cdm-' + suffix + '-26);\n' +
+'}\n' +
+'.cdm-' + suffix + '-3 p {\n' +
+'font-size: var(--cdm-' + suffix + '-12);\n' +
+'margin-bottom: 10px;\n' +
+'color: var(--cdm-' + suffix + '-7);\n' +
+'font-weight: var(--cdm-' + suffix + '-11);\n' +
+'text-align: var(--cdm-' + suffix + '-27);\n' +
+'}\n' +
+'@-webkit-keyframes slideanim-' + suffix + ' {\n' +
+'0% { opacity: 0; }\n' +
+'10% { opacity: 1; pointer-events: auto; }\n' +
+'20% { opacity: 1; pointer-events: auto; }\n' +
+'30% { opacity: 0; }\n' +
+'100% { opacity: 0; }\n' +
+'}\n' +
+'@keyframes slideanim-' + suffix + ' {\n' +
+'0% { opacity: 0; }\n' +
+'10% { opacity: 1; pointer-events: auto; }\n' +
+'20% { opacity: 1; pointer-events: auto; }\n' +
+'30% { opacity: 0; }\n' +
+'100% { opacity: 0; }\n' +
+'}\n' +
+'@-webkit-keyframes zoom-' + suffix + ' {\n' +
+'50% { -webkit-transform: scale(' + zoomVal + '); transform: scale(' + zoomVal + '); }\n' +
+'}\n' +
+'@keyframes zoom-' + suffix + ' {\n' +
+'50% { -webkit-transform: scale(' + zoomVal + '); transform: scale(' + zoomVal + '); }\n' +
+'}\n' +
+'@media screen and (max-width: 440px) {\n' +
+'.cdm-' + suffix + '-1 {\n' +
+'width: ' + mobW + '% !important;\n' +
+'height: ' + mobH + 'px !important;\n' +
+'border-width: ' + mobBW + 'px;\n' +
+'border-color: ' + mobBorderRgba + ';\n' +
+'}\n' +
+'.cdm-' + suffix + '-3 {\n' +
+'padding: ' + mobPanelPT + 'px ' + mobPanelPR + 'px ' + mobPanelPB + 'px ' + mobPanelPL + 'px;\n' +
+'bottom: ' + mobPanelBottom + 'px;\n' +
+'border-radius: ' + mobPanelRadius + 'px;\n' +
+'left: ' + mobPanelML + 'px;\n' +
+'right: ' + mobPanelMR + 'px;\n' +
+'margin-bottom: ' + mobPanelMB + 'px;\n' +
+'}\n' +
+'.cdm-' + suffix + '-3 h5 {\n' +
+'font-size: ' + mobTSize + 'px;\n' +
+'margin-bottom: ' + mobTxMargin + 'px;\n' +
+'font-weight: ' + mobTWeight + ';\n' +
+'text-align: ' + mobileTitleAlign + ';\n' +
+'}\n' +
+'.cdm-' + suffix + '-3 p {\n' +
+'font-size: ' + mobTxSize + 'px;\n' +
+'font-weight: ' + mobTxWeight + ';\n' +
+'text-align: ' + mobileTextAlign + ';\n' +
+'}\n' +
+'}\n' +
+'@media (max-width: 400px) {\n' +
+'.cdm-' + suffix + '-1 {\n' +
+'width: ' + mobW + '% !important;\n' +
+'height: ' + mobH + 'px !important;\n' +
+'margin-top: 8%;\n' +
+'}\n' +
+'}\n' +
+'</style>\n';
+
+return code.replace(/\n/g, '');
+}
+
+let currentSuffix = '';
+let finalCode = '';
+function updateAll() {
+updateRangeDisplays();
+updatePreview();
+finalCode = generateFinalCode();
+}
+
+// ---- Контракт «генератор ↔ расширение» (см. саммари, раздел 10.5) ----
+function getSettings() {
+var slides = slidesData.map(function(s) {
+return { id: s.id, title: s.title, text: s.text, img: s.img };
+});
+return {
+v: 1,
+generatorId: 'cdm-slider-3.2',
+sliderRadius: sliderRadius.val(),
+zoomScale: zoomScale.val(),
+totalTime: totalTime.val(),
+bgOpacity: bgOpacity.val(),
+bgColor: bgColor,
+titleColor: titleColor,
+textColor: textColor,
+titleOpacity: titleOpacity.val(),
+textOpacity: textOpacity.val(),
+selectedFont: selectedFont,
+desktop: {
+width: desktopWidth.val(), height: desktopHeight.val(),
+titleSize: desktopTitleSize.val(), textSize: desktopTextSize.val(),
+titleWeight: desktopTitleWeight.val(), textWeight: desktopTextWeight.val(),
+textMargin: desktopTextMargin.val(),
+borderWidth: desktopBorderWidth.val(), borderColor: desktopBorderColor, borderOpacity: desktopBorderOpacity.val(),
+titleAlign: desktopTitleAlign, textAlign: desktopTextAlign,
+panelMarginRight: desktopPanelMarginRight.val(), panelMarginLeft: desktopPanelMarginLeft.val(), panelMarginBottom: desktopPanelMarginBottom.val(),
+panelPaddingTop: desktopPanelPaddingTop.val(), panelPaddingRight: desktopPanelPaddingRight.val(),
+panelPaddingBottom: desktopPanelPaddingBottom.val(), panelPaddingLeft: desktopPanelPaddingLeft.val(),
+panelBottom: desktopPanelBottom.val(), panelRadius: desktopPanelRadius.val()
+},
+mobile: {
+width: mobileWidth.val(), height: mobileHeight.val(),
+titleSize: mobileTitleSize.val(), textSize: mobileTextSize.val(),
+titleWeight: mobileTitleWeight.val(), textWeight: mobileTextWeight.val(),
+textMargin: mobileTextMargin.val(),
+borderWidth: mobileBorderWidth.val(), borderColor: mobileBorderColor, borderOpacity: mobileBorderOpacity.val(),
+titleAlign: mobileTitleAlign, textAlign: mobileTextAlign,
+panelMarginRight: mobilePanelMarginRight.val(), panelMarginLeft: mobilePanelMarginLeft.val(), panelMarginBottom: mobilePanelMarginBottom.val(),
+panelPaddingTop: mobilePanelPaddingTop.val(), panelPaddingRight: mobilePanelPaddingRight.val(),
+panelPaddingBottom: mobilePanelPaddingBottom.val(), panelPaddingLeft: mobilePanelPaddingLeft.val(),
+panelBottom: mobilePanelBottom.val(), panelRadius: mobilePanelRadius.val()
+},
+slides: slides
+};
+}
+
+function applySettings(s) {
+if (!s) return;
+if (s.sliderRadius !== undefined) sliderRadius.val(s.sliderRadius);
+if (s.zoomScale !== undefined) zoomScale.val(s.zoomScale);
+if (s.totalTime !== undefined) totalTime.val(s.totalTime);
+if (s.bgOpacity !== undefined) bgOpacity.val(s.bgOpacity);
+if (s.titleOpacity !== undefined) titleOpacity.val(s.titleOpacity);
+if (s.textOpacity !== undefined) textOpacity.val(s.textOpacity);
+if (s.bgColor !== undefined) { bgColor = s.bgColor; $('.customColorHexBgColor').text(bgColor); $('.customColorPreviewBgColor').css('background', bgColor); }
+if (s.titleColor !== undefined) { titleColor = s.titleColor; $('.customColorHexTitleColor').text(titleColor); $('.customColorPreviewTitleColor').css('background', titleColor); }
+if (s.textColor !== undefined) { textColor = s.textColor; $('.customColorHexTextColor').text(textColor); $('.customColorPreviewTextColor').css('background', textColor); }
+if (s.selectedFont !== undefined && s.selectedFont !== 'none') {
+selectedFont = s.selectedFont;
+var fsel = $('#cdmFontSelect');
+fsel.find('.cdm-select-option').removeClass('selected');
+fsel.find('.cdm-select-option[data-value="' + s.selectedFont + '"]').addClass('selected');
+if (fsel.find('.cdm-select-option[data-value="' + s.selectedFont + '"]').length) {
+fsel.find('.cdm-select-trigger').contents().first().replaceWith(fsel.find('.cdm-select-option[data-value="' + s.selectedFont + '"]').text());
+} else {
+selectedFont = 'none';
+}
+}
+var d = s.desktop || {}, m = s.mobile || {};
+if (d.width !== undefined) desktopWidth.val(d.width);
+if (d.height !== undefined) desktopHeight.val(d.height);
+if (d.titleSize !== undefined) desktopTitleSize.val(d.titleSize);
+if (d.textSize !== undefined) desktopTextSize.val(d.textSize);
+if (d.titleWeight !== undefined) desktopTitleWeight.val(d.titleWeight);
+if (d.textWeight !== undefined) desktopTextWeight.val(d.textWeight);
+if (d.textMargin !== undefined) desktopTextMargin.val(d.textMargin);
+if (d.borderWidth !== undefined) desktopBorderWidth.val(d.borderWidth);
+if (d.borderOpacity !== undefined) desktopBorderOpacity.val(d.borderOpacity);
+if (d.borderColor !== undefined) { desktopBorderColor = d.borderColor; $('.customColorHexDesktopBorderColor').text(desktopBorderColor); $('.customColorPreviewDesktopBorderColor').css('background', desktopBorderColor); }
+if (m.width !== undefined) mobileWidth.val(m.width);
+if (m.height !== undefined) mobileHeight.val(m.height);
+if (m.titleSize !== undefined) mobileTitleSize.val(m.titleSize);
+if (m.textSize !== undefined) mobileTextSize.val(m.textSize);
+if (m.titleWeight !== undefined) mobileTitleWeight.val(m.titleWeight);
+if (m.textWeight !== undefined) mobileTextWeight.val(m.textWeight);
+if (m.textMargin !== undefined) mobileTextMargin.val(m.textMargin);
+if (m.borderWidth !== undefined) mobileBorderWidth.val(m.borderWidth);
+if (m.borderOpacity !== undefined) mobileBorderOpacity.val(m.borderOpacity);
+if (m.borderColor !== undefined) { mobileBorderColor = m.borderColor; $('.customColorHexMobileBorderColor').text(mobileBorderColor); $('.customColorPreviewMobileBorderColor').css('background', mobileBorderColor); }
+
+// align selects
+function applyAlign(selId, val) {
+if (!val) return;
+var opt = $(selId).find('.cdm-select-option[data-value="' + val + '"]');
+if (opt.length) { opt.click(); }
+}
+applyAlign('#cdmDesktopTitleAlign', d.titleAlign || desktopTitleAlign);
+applyAlign('#cdmDesktopTextAlign', d.textAlign || desktopTextAlign);
+applyAlign('#cdmMobileTitleAlign', m.titleAlign || mobileTitleAlign);
+applyAlign('#cdmMobileTextAlign', m.textAlign || mobileTextAlign);
+
+// panel paddings/margins
+if (d.panelMarginRight !== undefined) desktopPanelMarginRight.val(d.panelMarginRight);
+if (d.panelMarginLeft !== undefined) desktopPanelMarginLeft.val(d.panelMarginLeft);
+if (d.panelMarginBottom !== undefined) desktopPanelMarginBottom.val(d.panelMarginBottom);
+if (d.panelPaddingTop !== undefined) desktopPanelPaddingTop.val(d.panelPaddingTop);
+if (d.panelPaddingRight !== undefined) desktopPanelPaddingRight.val(d.panelPaddingRight);
+if (d.panelPaddingBottom !== undefined) desktopPanelPaddingBottom.val(d.panelPaddingBottom);
+if (d.panelPaddingLeft !== undefined) desktopPanelPaddingLeft.val(d.panelPaddingLeft);
+if (d.panelBottom !== undefined) desktopPanelBottom.val(d.panelBottom);
+if (d.panelRadius !== undefined) desktopPanelRadius.val(d.panelRadius);
+if (m.panelMarginRight !== undefined) mobilePanelMarginRight.val(m.panelMarginRight);
+if (m.panelMarginLeft !== undefined) mobilePanelMarginLeft.val(m.panelMarginLeft);
+if (m.panelMarginBottom !== undefined) mobilePanelMarginBottom.val(m.panelMarginBottom);
+if (m.panelPaddingTop !== undefined) mobilePanelPaddingTop.val(m.panelPaddingTop);
+if (m.panelPaddingRight !== undefined) mobilePanelPaddingRight.val(m.panelPaddingRight);
+if (m.panelPaddingBottom !== undefined) mobilePanelPaddingBottom.val(m.panelPaddingBottom);
+if (m.panelPaddingLeft !== undefined) mobilePanelPaddingLeft.val(m.panelPaddingLeft);
+if (m.panelBottom !== undefined) mobilePanelBottom.val(m.panelBottom);
+if (m.panelRadius !== undefined) mobilePanelRadius.val(m.panelRadius);
+
+// slides
+if (Array.isArray(s.slides) && s.slides.length) {
+slidesData = s.slides.map(function(x, i) { return { id: x.id || (i + 1), title: x.title || '', text: x.text || '', img: x.img || '' }; });
+renderSlides();
+bindSlideInputs();
+}
+updateAll();
+}
+
+function getDefaultSettings() {
+return JSON.parse(JSON.stringify(defaultValues));
+}
+// ---- /Контракт ----
+
+// Приём инициализации от расширения: { action:"cdm-init", settings } — поставить настройки из TMB:cfg блока
+window.addEventListener('message', function(e) {
+try {
+var data = e.data;
+if (!data || typeof data !== 'object') return;
+if (data.action === 'cdm-init' && data.settings) {
+applySettings(data.settings);
+}
+} catch (err) {}
+});
+
+var defaultValues = {
+sliderRadius: 8,
+zoomScale: 1.3,
+totalTime: 30,
+bgOpacity: 28,
+bgColor: '#ffffff',
+titleColor: '#333333',
+textColor: '#333333',
+selectedFont: 'none',
+desktopWidth: 90,
+desktopHeight: 600,
+desktopTitleSize: 22,
+desktopTextSize: 15,
+desktopTitleWeight: 700,
+desktopTextWeight: 300,
+desktopTextMargin: 10,
+desktopBorderWidth: 0,
+desktopBorderColor: '#cccccc',
+desktopBorderOpacity: 0,
+desktopTitleAlign: 'left',
+desktopTextAlign: 'left',
+desktopPanelMarginRight: 0,
+desktopPanelMarginLeft: 0,
+desktopPanelMarginBottom: 0,
+desktopPanelPaddingTop: 30,
+desktopPanelPaddingRight: 30,
+desktopPanelPaddingBottom: 30,
+desktopPanelPaddingLeft: 30,
+desktopPanelBottom: 0,
+desktopPanelRadius: 0,
+mobileWidth: 95,
+mobileHeight: 400,
+mobileTitleSize: 16,
+mobileTextSize: 13,
+mobileTitleWeight: 700,
+mobileTextWeight: 300,
+mobileTextMargin: 8,
+mobileBorderWidth: 0,
+mobileBorderColor: '#cccccc',
+mobileBorderOpacity: 0,
+mobileTitleAlign: 'left',
+mobileTextAlign: 'left',
+mobilePanelMarginRight: 0,
+mobilePanelMarginLeft: 0,
+mobilePanelMarginBottom: 0,
+mobilePanelPaddingTop: 20,
+mobilePanelPaddingRight: 20,
+mobilePanelPaddingBottom: 20,
+mobilePanelPaddingLeft: 20,
+mobilePanelBottom: 0,
+mobilePanelRadius: 0,
+slides: [
+{ id: 1, title: 'Заголовок', text: 'Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым.', img: 'https://s1.radikal.cloud/2026/09/02/2151867731a748e7072a6b80d1.jpg' },
+{ id: 2, title: 'Заголовок', text: 'Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику.', img: 'https://s2.radikal.cloud/2026/09/02/215186773441e6154a259f59da.jpg' },
+{ id: 3, title: 'Заголовок', text: 'Понимание сути ресурсосберегающих технологий позволяет выполнить важные задания по разработке экономической целесообразности решений.', img: 'https://s2.radikal.cloud/2026/09/02/21518811505cfda5e6d1a64223.jpg' },
+{ id: 4, title: 'Заголовок', text: 'В частности, перспективное планирование выявляет срочную потребность новых принципов формирования материально-технической и кадровой базы.', img: 'https://s1.radikal.cloud/2026/09/02/215202095642c1c4647b9fb8aa.jpg' },
+{ id: 5, title: 'Заголовок', text: 'Значимость проблем настолько очевидна, что постоянный количественный рост активности представляет собой интересный эксперимент проверки систем.', img: 'https://s1.radikal.cloud/2026/09/02/2151855194fee6527c8e548d47.jpg' }
+]
+};
+
+function resetSettings() {
+sliderRadius.val(defaultValues.sliderRadius);
+zoomScale.val(defaultValues.zoomScale);
+totalTime.val(defaultValues.totalTime);
+bgOpacity.val(defaultValues.bgOpacity);
+bgColor = defaultValues.bgColor;
+titleColor = defaultValues.titleColor;
+textColor = defaultValues.textColor;
+selectedFont = defaultValues.selectedFont;
+desktopBorderColor = defaultValues.desktopBorderColor;
+mobileBorderColor = defaultValues.mobileBorderColor;
+desktopTitleAlign = defaultValues.desktopTitleAlign;
+desktopTextAlign = defaultValues.desktopTextAlign;
+mobileTitleAlign = defaultValues.mobileTitleAlign;
+mobileTextAlign = defaultValues.mobileTextAlign;
+
+desktopWidth.val(defaultValues.desktopWidth);
+desktopHeight.val(defaultValues.desktopHeight);
+desktopTitleSize.val(defaultValues.desktopTitleSize);
+desktopTextSize.val(defaultValues.desktopTextSize);
+desktopTitleWeight.val(defaultValues.desktopTitleWeight);
+desktopTextWeight.val(defaultValues.desktopTextWeight);
+desktopTextMargin.val(defaultValues.desktopTextMargin);
+desktopBorderWidth.val(defaultValues.desktopBorderWidth);
+desktopBorderOpacity.val(defaultValues.desktopBorderOpacity);
+desktopPanelMarginRight.val(defaultValues.desktopPanelMarginRight);
+desktopPanelMarginLeft.val(defaultValues.desktopPanelMarginLeft);
+desktopPanelMarginBottom.val(defaultValues.desktopPanelMarginBottom);
+desktopPanelPaddingTop.val(defaultValues.desktopPanelPaddingTop);
+desktopPanelPaddingRight.val(defaultValues.desktopPanelPaddingRight);
+desktopPanelPaddingBottom.val(defaultValues.desktopPanelPaddingBottom);
+desktopPanelPaddingLeft.val(defaultValues.desktopPanelPaddingLeft);
+desktopPanelBottom.val(defaultValues.desktopPanelBottom);
+desktopPanelRadius.val(defaultValues.desktopPanelRadius);
+
+mobileWidth.val(defaultValues.mobileWidth);
+mobileHeight.val(defaultValues.mobileHeight);
+mobileTitleSize.val(defaultValues.mobileTitleSize);
+mobileTextSize.val(defaultValues.mobileTextSize);
+mobileTitleWeight.val(defaultValues.mobileTitleWeight);
+mobileTextWeight.val(defaultValues.mobileTextWeight);
+mobileTextMargin.val(defaultValues.mobileTextMargin);
+mobileBorderWidth.val(defaultValues.mobileBorderWidth);
+desktopBorderOpacity.val(defaultValues.desktopBorderOpacity);
+mobileBorderOpacity.val(defaultValues.mobileBorderOpacity);
+mobilePanelMarginRight.val(defaultValues.mobilePanelMarginRight);
+mobilePanelMarginLeft.val(defaultValues.mobilePanelMarginLeft);
+mobilePanelMarginBottom.val(defaultValues.mobilePanelMarginBottom);
+mobilePanelPaddingTop.val(defaultValues.mobilePanelPaddingTop);
+mobilePanelPaddingRight.val(defaultValues.mobilePanelPaddingRight);
+mobilePanelPaddingBottom.val(defaultValues.mobilePanelPaddingBottom);
+mobilePanelPaddingLeft.val(defaultValues.mobilePanelPaddingLeft);
+mobilePanelBottom.val(defaultValues.mobilePanelBottom);
+mobilePanelRadius.val(defaultValues.mobilePanelRadius);
+
+$('.customColorHexBgColor').text(bgColor);
+$('.customColorPreviewBgColor').css('background', bgColor);
+$('.customColorHexTitleColor').text(titleColor);
+$('.customColorPreviewTitleColor').css('background', titleColor);
+$('.customColorHexTextColor').text(textColor);
+$('.customColorPreviewTextColor').css('background', textColor);
+$('.customColorHexDesktopBorderColor').text(desktopBorderColor);
+$('.customColorPreviewDesktopBorderColor').css('background', desktopBorderColor);
+$('.customColorHexMobileBorderColor').text(mobileBorderColor);
+$('.customColorPreviewMobileBorderColor').css('background', mobileBorderColor);
+
+slidesData = JSON.parse(JSON.stringify(defaultValues.slides));
+renderSlides();
+bindSlideInputs();
+
+// Reset font select
+var fontSelect = $('#cdmFontSelect');
+fontSelect.find('.cdm-select-option').removeClass('selected');
+fontSelect.find('.cdm-select-option[data-value="none"]').addClass('selected');
+fontSelect.find('.cdm-select-trigger').contents().first().replaceWith('Шрифт не выбран');
+fontSelect.data('value', 'none');
+
+// Reset alignment selects
+$('#cdmDesktopTitleAlign').find('.cdm-select-option[data-value="left"]').click();
+$('#cdmDesktopTextAlign').find('.cdm-select-option[data-value="left"]').click();
+$('#cdmMobileTitleAlign').find('.cdm-select-option[data-value="left"]').click();
+$('#cdmMobileTextAlign').find('.cdm-select-option[data-value="left"]').click();
+
+updateAll();
+}
+
+$('#cdmResetBtn').on('click', resetSettings);
+
+const allInputs = [
+sliderRadius, zoomScale, totalTime, bgOpacity, titleOpacity, textOpacity,
+desktopWidth, desktopHeight, desktopTitleSize, desktopTextSize,
+desktopTitleWeight, desktopTextWeight, desktopTextMargin,
+desktopBorderWidth, desktopBorderOpacity, desktopPanelMarginRight, desktopPanelMarginLeft, desktopPanelMarginBottom,
+desktopPanelPaddingTop, desktopPanelPaddingRight, desktopPanelPaddingBottom, desktopPanelPaddingLeft,
+desktopPanelBottom, desktopPanelRadius,
+mobileWidth, mobileHeight, mobileTitleSize, mobileTextSize,
+mobileTitleWeight, mobileTextWeight, mobileTextMargin,
+mobileBorderWidth, mobileBorderOpacity, mobilePanelMarginRight, mobilePanelMarginLeft, mobilePanelMarginBottom,
+mobilePanelPaddingTop, mobilePanelPaddingRight, mobilePanelPaddingBottom, mobilePanelPaddingLeft,
+mobilePanelBottom, mobilePanelRadius
+];
+allInputs.forEach(function(el) { el.on('input', updateAll); });
+
+$('.cdm-slide-title, .cdm-slide-text, .cdm-slide-img').on('input', updateAll);
+
+$('.cdm-custom-select').each(function() {
+const $select = $(this);
+const $trigger = $select.find('.cdm-select-trigger');
+const $options = $select.find('.cdm-select-option');
+const initialValue = $select.data('value');
+if (initialValue) {
+$options.filter('[data-value="' + initialValue + '"]').addClass('selected');
+$trigger.contents().first().replaceWith($options.filter('.selected').text());
+}
+$trigger.on('click', function(e) {
+e.stopPropagation();
+$('.cdm-custom-select').not($select).removeClass('open');
+$select.toggleClass('open');
+});
+$options.on('click', function(e) {
+e.stopPropagation();
+const val = $(this).data('value');
+const text = $(this).text();
+$options.removeClass('selected');
+$(this).addClass('selected');
+$trigger.contents().first().replaceWith(text);
+$select.data('value', val);
+$select.removeClass('open');
+if ($select[0].id === 'cdmFontSelect') {
+selectedFont = val;
+} else if ($select[0].id === 'cdmDesktopTitleAlign') {
+desktopTitleAlign = val;
+} else if ($select[0].id === 'cdmDesktopTextAlign') {
+desktopTextAlign = val;
+} else if ($select[0].id === 'cdmMobileTitleAlign') {
+mobileTitleAlign = val;
+} else if ($select[0].id === 'cdmMobileTextAlign') {
+mobileTextAlign = val;
+}
+updateAll();
+});
+});
+
+$(document).on('click', function() {
+$('.cdm-custom-select').removeClass('open');
+});
+
+// Color swatches
+$('.cdm-color-palette').eq(0).find('.cdm-color-swatch').off('click').on('click', function() {
+bgColor = $(this).data('color');
+$('.customColorHexBgColor').text(bgColor);
+$('.customColorPreviewBgColor').css('background', bgColor);
+updateAll();
+});
+$('.cdm-color-palette').eq(1).find('.cdm-color-swatch').off('click').on('click', function() {
+titleColor = $(this).data('color');
+$('.customColorHexTitleColor').text(titleColor);
+$('.customColorPreviewTitleColor').css('background', titleColor);
+updateAll();
+});
+$('.cdm-color-palette').eq(2).find('.cdm-color-swatch').off('click').on('click', function() {
+textColor = $(this).data('color');
+$('.customColorHexTextColor').text(textColor);
+$('.customColorPreviewTextColor').css('background', textColor);
+updateAll();
+});
+// Desktop border color palette
+$('.cdm-color-palette').eq(3).find('.cdm-color-swatch').off('click').on('click', function() {
+desktopBorderColor = $(this).data('color');
+$('.customColorHexDesktopBorderColor').text(desktopBorderColor);
+$('.customColorPreviewDesktopBorderColor').css('background', desktopBorderColor);
+updateAll();
+});
+// Mobile border color palette
+$('.cdm-color-palette').eq(4).find('.cdm-color-swatch').off('click').on('click', function() {
+mobileBorderColor = $(this).data('color');
+$('.customColorHexMobileBorderColor').text(mobileBorderColor);
+$('.customColorPreviewMobileBorderColor').css('background', mobileBorderColor);
+updateAll();
+});
+
+var pointsToggle = $('#cdmTogglePoints');
+pointsToggle.prop('checked', false);
+pointsToggle.on('change', function() {
+pointsEnabled = $(this).is(':checked');
+$('#cdmPointsHelp').toggleClass('active', pointsEnabled);
+updatePreview();
+});
+
+$('#cdmThemeToggle').on('click', function() {
+var $master = $('.cdm-master');
+$master.toggleClass('dark-theme');
+$('body').toggleClass('dark-theme-body');
+if ($master.hasClass('dark-theme')) {
+$(this).removeClass('ph-moon').addClass('ph-sun-dim');
+$(this).css('color', '#fbbf24');
+} else {
+$(this).removeClass('ph-sun-dim').addClass('ph-moon');
+$(this).css('color', '#aaa');
+}
+updatePreview();
+});
+
+var helpPopup = $('#cdmHelpPopup');
+var pointsHelp = $('#cdmPointsHelp');
+pointsHelp.on('mouseenter', function(e) {
+var rect = this.getBoundingClientRect();
+helpPopup.css({
+position: 'fixed',
+left: (rect.left - 50) + 'px',
+top: (rect.bottom + 10) + 'px',
+display: 'block'
+});
+});
+pointsHelp.on('mouseleave', function() {
+helpPopup.hide();
+});
+$(document).on('click', function(e) {
+if (!$(e.target).closest('#cdmHelpPopup').length && e.target.id !== 'cdmPointsHelp') {
+helpPopup.hide();
+}
+});
+
+var fontHelpPopup = $('#cdmFontHelpPopup');
+var fontHelpIcon = $('#cdmFontHelpIcon');
+fontHelpIcon.on('mouseenter', function(e) {
+var rect = this.getBoundingClientRect();
+var gap = 10;
+fontHelpPopup.css({
+position: 'fixed',
+left: (rect.left - gap) + 'px',
+top: (rect.top + rect.height / 2) + 'px',
+transform: 'translate(-100%, -50%)',
+display: 'block'
+});
+});
+fontHelpIcon.on('mouseleave', function() {
+fontHelpPopup.hide();
+});
+$(document).on('click', function(e) {
+if (!$(e.target).closest('#cdmFontHelpPopup').length && e.target.id !== 'cdmFontHelpIcon') {
+fontHelpPopup.hide();
+}
+});
+
+// Image URL help popup
+var imgHelpPopup = $('#cdmImgHelpPopup');
+$(document).on('mouseenter', '.cdm-img-help-icon', function(e) {
+var rect = this.getBoundingClientRect();
+imgHelpPopup.css({
+position: 'fixed',
+left: (rect.left - 10) + 'px',
+top: (rect.top + rect.height / 2) + 'px',
+transform: 'translate(-100%, -50%)',
+display: 'block'
+});
+});
+$(document).on('mouseleave', '.cdm-img-help-icon', function() {
+imgHelpPopup.hide();
+});
+$(document).on('click', function(e) {
+if (!$(e.target).closest('#cdmImgHelpPopup').length && !$(e.target).hasClass('cdm-img-help-icon')) {
+imgHelpPopup.hide();
+}
+});
+
+let activeColorCallback = null;
+const popupColorPicker = $('#cdmCustomColorPopup');
+const colorPickerInput = $('#cdmCustomColorPicker');
+const colorHexInput = $('#cdmCustomColorHexInput');
+const confirmBtn = $('#cdmCustomColorConfirm');
+const cancelBtn = $('#cdmCustomColorCancel');
+const copyColorBtnPop = $('#cdmCopyColorBtn');
+
+function showColorPopup(element, currentColor, callback) {
+activeColorCallback = callback;
+let hexColor = currentColor;
+if (!currentColor.startsWith('#')) {
+hexColor = '#333333';
+}
+colorPickerInput.val(hexColor);
+colorHexInput.val(hexColor);
+const rect = element.getBoundingClientRect();
+let leftPos = rect.left - 310;
+if (leftPos < 10) leftPos = rect.right + 10;
+var paletteRect = $('.cdm-color-palette')[0].getBoundingClientRect();
+var topPos = paletteRect.top + window.scrollY;
+popupColorPicker.css({ left: leftPos + 'px', top: topPos + 'px', display: 'block' });
+}
+
+function hideColorPopup() { popupColorPicker.hide(); activeColorCallback = null; }
+
+colorPickerInput.on('input', function() { colorHexInput.val(colorPickerInput.val()); });
+colorHexInput.on('input', function() { let v = colorHexInput.val().trim(); if (/^#[0-9A-F]{6}$/i.test(v)) colorPickerInput.val(v); });
+
+confirmBtn.on('click', function() {
+if (activeColorCallback) activeColorCallback(colorPickerInput.val());
+hideColorPopup();
+updateAll();
+});
+cancelBtn.on('click', hideColorPopup);
+copyColorBtnPop.on('click', function() {
+navigator.clipboard.writeText(colorHexInput.val());
+copyColorBtnPop.css('color', '#4CAF50');
+setTimeout(function() { copyColorBtnPop.css('color', '#333'); }, 1000);
+});
+
+$('.cdm-custom-color-row[data-target="bgColor"]').on('click', function(e) {
+e.stopPropagation();
+showColorPopup(this, bgColor, function(c) {
+bgColor = c;
+$('.customColorHexBgColor').text(c);
+$('.customColorPreviewBgColor').css('background', c);
+updateAll();
+});
+});
+$('.cdm-custom-color-row[data-target="titleColor"]').on('click', function(e) {
+e.stopPropagation();
+showColorPopup(this, titleColor, function(c) {
+titleColor = c;
+$('.customColorHexTitleColor').text(c);
+$('.customColorPreviewTitleColor').css('background', c);
+updateAll();
+});
+});
+$('.cdm-custom-color-row[data-target="textColor"]').on('click', function(e) {
+e.stopPropagation();
+showColorPopup(this, textColor, function(c) {
+textColor = c;
+$('.customColorHexTextColor').text(c);
+$('.customColorPreviewTextColor').css('background', c);
+updateAll();
+});
+});
+$('.cdm-custom-color-row[data-target="desktopBorderColor"]').on('click', function(e) {
+e.stopPropagation();
+showColorPopup(this, desktopBorderColor, function(c) {
+desktopBorderColor = c;
+$('.customColorHexDesktopBorderColor').text(c);
+$('.customColorPreviewDesktopBorderColor').css('background', c);
+updateAll();
+});
+});
+$('.cdm-custom-color-row[data-target="mobileBorderColor"]').on('click', function(e) {
+e.stopPropagation();
+showColorPopup(this, mobileBorderColor, function(c) {
+mobileBorderColor = c;
+$('.customColorHexMobileBorderColor').text(c);
+$('.customColorPreviewMobileBorderColor').css('background', c);
+updateAll();
+});
+});
+
+$('.cdm-device-icon').on('click', function() {
+previewMode = $(this).data('device');
+$('.cdm-device-icon').removeClass('active');
+$(this).addClass('active');
+updatePreview();
+});
+
+$('#cdmApplyBtn').on('click', function() {
+var codeToApply = '<!-- Пример кода сгенерирован с помощью генератора кода проекта Кодим . Сайт проекта codim.taplink.ws -->' + finalCode + '<!-- © Кодим, ' + new Date().toLocaleDateString('ru-RU') + ' -->';
+try {
+window.parent.postMessage({ action: 'cdm-apply', code: codeToApply, settings: getSettings() }, '*');
+} catch (e) {}
+});
+
+$(window).on('resize', function() {
+if (previewMode === 'desktop' && pointsEnabled) {
+updatePreview();
+}
+});
+
+pointsToggle.prop('checked', false);
+pointsEnabled = false;
+$('#cdmPointsHelp').removeClass('active');
+
+// Preview animation styles
+$('<style id="cdm-preview-anim-style">').appendTo('head');
+function updatePreviewAnimStyle() {
+var totalSec = parseInt(totalTime.val(), 10);
+if (totalSec < 15) totalSec = 15;
+var slideCount = slidesData.length;
+if (slideCount < 1) slideCount = 1;
+var zoomVal = parseFloat(zoomScale.val());
+var css = '';
+css += '@keyframes cdm-sp-slideanim { 0%{opacity:0} 10%{opacity:1;pointer-events:auto} 20%{opacity:1;pointer-events:auto} 30%{opacity:0} 100%{opacity:0} }\n';
+css += '@-webkit-keyframes cdm-sp-slideanim { 0%{opacity:0} 10%{opacity:1;pointer-events:auto} 20%{opacity:1;pointer-events:auto} 30%{opacity:0} 100%{opacity:0} }\n';
+css += '@keyframes cdm-sp-zoom { 50%{transform:scale(' + zoomVal + ')} }\n';
+css += '@-webkit-keyframes cdm-sp-zoom { 50%{-webkit-transform:scale(' + zoomVal + ')} }\n';
+$('#cdm-preview-anim-style').text(css);
+}
+updatePreviewAnimStyle();
+totalTime.on('input', updatePreviewAnimStyle);
+zoomScale.on('input', updatePreviewAnimStyle);
+
+renderSlides();
+bindSlideInputs();
+updateAll();
+})();
+</script>
+<!-- ***************************
+* @project     Генератор кода слайдер вариант №1 расширенная версия (адаптирован под контракт cdm)
+* @author      Кодим
+* @copyright   (c) 2026, Кодим
+* @license     Проприетарная лицензия
+* @version     1.3
+* @date        04-10-2026
+* @link        https://codim.taplink.ws
+******************************* -->
