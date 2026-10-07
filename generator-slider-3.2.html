@@ -143,6 +143,11 @@ flex-shrink: 0;
 margin-right: 8px;
 vertical-align: middle;
 }
+/* [1.70/задача№6] Иконки темы/девайса перенесены в шапку модалки (управляются расширением).
+   Исходный блок иконок внутри конфигуратора скрываем, чтобы не было дублей. */
+.cdm-top-actions {
+display: none !important;
+}
 body.dark-theme-body .cdm-select-option img {
 filter: invert(1) brightness(1.5);
 }
@@ -162,7 +167,7 @@ filter: invert(1) brightness(1.5);
 </label>
 <span id="cdmPointsHelp" class="cdm-points-label" style="font-size:16px; font-weight:300; color:#959595; cursor:pointer;">Контрольные точки</span>
 </div>
-<div style="display: flex; gap: 12px; margin-right: 20px;">
+<div style="display: flex; gap: 12px; margin-right: 20px;" class="cdm-top-actions">
 <i class="ph ph-moon" id="cdmThemeToggle" style="font-size:20px; cursor:pointer; color:#aaa; transition: color 0.2s;"></i>
 <i class="ph ph-desktop cdm-device-icon active" data-device="desktop" style="font-size:20px; cursor: pointer;"></i>
 <i class="ph ph-device-mobile cdm-device-icon" data-device="mobile" style="font-size:20px; cursor: pointer;"></i>
@@ -2268,13 +2273,23 @@ return JSON.parse(JSON.stringify(defaultValues));
 }
 // ---- /Контракт ----
 
-// Приём инициализации от расширения: { action:"cdm-init", settings } — поставить настройки из TMB:cfg блока
+// Приём команд от расширения (иконки перенесены в шапку модалки Taplink и управляют
+// конфигуратором через postMessage):
+//   cdm-init             — поставить настройки из TMB:cfg блока;
+//   cdm-theme-toggle     — переключить светлую/тёмную тему;
+//   cdm-device           — переключить превью десктоп/мобильный (data.payload = 'desktop'|'mobile').
 window.addEventListener('message', function(e) {
 try {
 var data = e.data;
 if (!data || typeof data !== 'object') return;
 if (data.action === 'cdm-init' && data.settings) {
 applySettings(data.settings);
+}
+if (data.action === 'cdm-theme-toggle') {
+cdmToggleTheme();
+}
+if (data.action === 'cdm-device' && data.payload) {
+cdmSetDevice(data.payload);
 }
 } catch (err) {}
 });
@@ -2528,19 +2543,20 @@ $('#cdmPointsHelp').toggleClass('active', pointsEnabled);
 updatePreview();
 });
 
-$('#cdmThemeToggle').on('click', function() {
+function cdmToggleTheme() {
 var $master = $('.cdm-master');
 $master.toggleClass('dark-theme');
 $('body').toggleClass('dark-theme-body');
 if ($master.hasClass('dark-theme')) {
-$(this).removeClass('ph-moon').addClass('ph-sun-dim');
-$(this).css('color', '#fbbf24');
+$('#cdmThemeToggle').removeClass('ph-moon').addClass('ph-sun-dim');
+$('#cdmThemeToggle').css('color', '#fbbf24');
 } else {
-$(this).removeClass('ph-sun-dim').addClass('ph-moon');
-$(this).css('color', '#aaa');
+$('#cdmThemeToggle').removeClass('ph-sun-dim').addClass('ph-moon');
+$('#cdmThemeToggle').css('color', '#aaa');
 }
 updatePreview();
-});
+}
+$('#cdmThemeToggle').on('click', cdmToggleTheme);
 
 var helpPopup = $('#cdmHelpPopup');
 var pointsHelp = $('#cdmPointsHelp');
@@ -2692,11 +2708,14 @@ updateAll();
 });
 });
 
-$('.cdm-device-icon').on('click', function() {
-previewMode = $(this).data('device');
+function cdmSetDevice(device) {
+previewMode = device;
 $('.cdm-device-icon').removeClass('active');
-$(this).addClass('active');
+$('.cdm-device-icon[data-device="' + device + '"]').addClass('active');
 updatePreview();
+}
+$('.cdm-device-icon').on('click', function() {
+cdmSetDevice($(this).data('device'));
 });
 
 $('#cdmApplyBtn').on('click', function() {
