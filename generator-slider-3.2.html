@@ -155,28 +155,15 @@ filter: invert(1) brightness(1.5);
 <div class="cdm-master" style="max-width:1750px; margin:0 auto; font-family:'Inter',system-ui,sans-serif;">
 <div class="cdm-two-columns">
 <div class="cdm-preview-col">
-<div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
-<div style="display: flex; align-items: center; gap: 10px;">
-<div class="cdm-live-dot"></div>
-<h3 style="font-weight:300; font-size:16px; margin:0; color:#333;">Предпросмотр</h3>
-</div>
-<div style="display: flex; align-items: center; gap: 10px; flex: 1; justify-content: center;">
-<label class="cdm-switch cdm-switch-sm">
-<input type="checkbox" id="cdmTogglePoints">
-<span class="cdm-slider"></span>
-</label>
-<span id="cdmPointsHelp" class="cdm-points-label" style="font-size:16px; font-weight:300; color:#959595; cursor:pointer;">Контрольные точки</span>
-</div>
-<div style="display: flex; gap: 12px; margin-right: 20px;" class="cdm-top-actions">
+<div style="display: flex; align-items: center; justify-content: flex-end; margin-bottom: 20px;" class="cdm-preview-top">
+<!-- [1.70/задача№6] Строка «Предпросмотр» с индикатором и переключатель «Контрольные точки»
+     удалены (владелец: не нужны). Осталась только группа .cdm-top-actions (иконки
+     темы/девайса), которая скрыта — управление вынесено в шапку модалки Taplink. -->
+<div class="cdm-top-actions" style="display: flex; gap: 12px;">
 <i class="ph ph-moon" id="cdmThemeToggle" style="font-size:20px; cursor:pointer; color:#aaa; transition: color 0.2s;"></i>
 <i class="ph ph-desktop cdm-device-icon active" data-device="desktop" style="font-size:20px; cursor: pointer;"></i>
 <i class="ph ph-device-mobile cdm-device-icon" data-device="mobile" style="font-size:20px; cursor: pointer;"></i>
 </div>
-</div>
-<div id="cdmHelpPopup" style="display:none; position:absolute; z-index:1000; padding:16px 20px; border-radius:6px; max-width:430px; font-family:'Inter',sans-serif;">
-<p style="font-size:14px; font-weight:300; line-height:1.5; margin:0;">
-Имитация настройки сервиса «Максимальная ширина страницы» даёт приблизительное (ориентировочное) визуальное представление, как будет выглядеть пример кода на активном сайте относительно установленной в&nbsp;настройках сервиса ширины страницы сайта.<br><br>Важно понимать, что демонстрируемый результат примера кода в превью генератора может отличаться после размещения примера кода на активном сайте.
-</p>
 </div>
 <div id="cdmFontHelpPopup" style="display:none; position:absolute; z-index:1000; padding:16px 20px; border-radius:6px; min-width:415px; font-family:'Inter',sans-serif;">
 <p style="font-size:14px; font-weight:300; line-height:1.5; margin:0;">
@@ -733,8 +720,6 @@ background-color: #1a1a1a;
 }
 .cdm-controls-col, .cdm-textarea, .cdm-input { overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none; }
 .cdm-controls-col::-webkit-scrollbar, .cdm-textarea::-webkit-scrollbar, .cdm-input::-webkit-scrollbar { display: none; }
-.cdm-live-dot { width: 6px; height: 6px; background-color: #77a5f7; border-radius: 50%; animation: cdm-pulse 1.5s infinite ease-in-out; flex-shrink: 0; }
-@keyframes cdm-pulse { 0% { opacity: 1; } 50% { opacity: 0.2; } 100% { opacity: 1; } }
 .cdm-color-palette { background: transparent; border-radius: 6px; padding: 12px 12px 6px 15px; border: 1px solid #3333331c; }
 .cdm-palette-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
 .cdm-color-swatch { width: 19px; height: 19px; border-radius: 6px; cursor: pointer; transition: 0.1s; flex-shrink: 0; }
@@ -1040,65 +1025,8 @@ background: #2a2a2a;
 color: #e0e0e0;
 border-color: #555;
 }
-.cdm-switch.cdm-switch-sm {
-position: relative;
-display: inline-block;
-width: 30px;
-height: 16px;
-flex-shrink: 0;
-margin-left: -70px;
-}
-.cdm-switch.cdm-switch-sm input {
-opacity: 0;
-width: 0;
-height: 0;
-}
-.cdm-switch.cdm-switch-sm .cdm-slider {
-position: absolute;
-cursor: pointer;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background: transparent;
-border: 1px solid #33333373;
-transition: .3s;
-border-radius: 20px;
-}
-.cdm-switch.cdm-switch-sm .cdm-slider:before {
-position: absolute;
-content: "";
-height: 10px;
-width: 10px;
-left: 2px;
-bottom: 2px;
-background: #33333373;
-transition: .3s;
-border-radius: 50%;
-}
-.cdm-switch.cdm-switch-sm input:checked + .cdm-slider {
-border-color: #33333373;
-background: transparent;
-}
-.cdm-switch.cdm-switch-sm input:checked + .cdm-slider:before {
-transform: translateX(14px);
-background: #333;
-}
-.cdm-master.dark-theme .cdm-switch.cdm-switch-sm .cdm-slider {
-border-color: #ffffff57;
-background: transparent;
-}
-.cdm-master.dark-theme .cdm-switch.cdm-switch-sm .cdm-slider:before {
-background: #ffffff57;
-}
-.cdm-master.dark-theme .cdm-switch.cdm-switch-sm input:checked + .cdm-slider {
-border-color: #ffffff57;
-background: transparent;
-}
-.cdm-master.dark-theme .cdm-switch.cdm-switch-sm input:checked + .cdm-slider:before {
-background: #fff;
-}
-.cdm-points-label.active { color: #333; }
+/* [1.70/задача№6] CSS свича «Контрольные точки» (.cdm-switch.cdm-switch-sm) и надписи
+.cdm-points-label удалены — элемент удалён из разметки. */
 
 .cdm-slider-preview {
 position: relative;
@@ -1230,9 +1158,6 @@ color: #fff !important;
 }
 .cdm-master.dark-theme .cdm-device-icon.active { color: #fff; }
 .cdm-master.dark-theme .cdm-device-icon:not(.active) { color: #888; }
-.cdm-master.dark-theme .cdm-live-dot {
-background-color: #aaa;
-}
 .cdm-master.dark-theme #cdmThemeToggle {
 color: #ddd !important;
 }
@@ -1277,7 +1202,6 @@ border-color: #444 !important;
 border-left-color: #4444446e !important;
 }
 }
-.cdm-master.dark-theme .cdm-points-label.active { color: #fff; }
 .cdm-master.dark-theme .desktop-mock {
 border-top-color: #bdbdbd1c;
 border-left-color: #bdbdbd1c;
@@ -1299,33 +1223,25 @@ color: #999;
 .cdm-master.dark-theme .cdm-slide-reorder-icon:hover {
 color: #ddd;
 }
-#cdmHelpPopup,
 #cdmFontHelpPopup,
 #cdmImgHelpPopup {
 background: #fff;
 border: 1px solid #ccccccab;
 box-shadow: none;
 }
-#cdmHelpPopup p,
 #cdmFontHelpPopup p,
 #cdmImgHelpPopup p {
 color: #333;
 }
-.cdm-master.dark-theme #cdmHelpPopup,
 .cdm-master.dark-theme #cdmFontHelpPopup,
 .cdm-master.dark-theme #cdmImgHelpPopup {
 background: #1a1a1a !important;
 border-color: #555 !important;
 }
-.cdm-master.dark-theme #cdmHelpPopup p,
 .cdm-master.dark-theme #cdmFontHelpPopup p,
 .cdm-master.dark-theme #cdmImgHelpPopup p {
 color: #e0e0e0 !important;
 }
-.cdm-marker-dot { background: rgba(0,0,0,0.35); }
-.cdm-marker-label { color: #888; }
-.cdm-master.dark-theme .cdm-marker-dot { background: rgba(255,255,255,0.35); }
-.cdm-master.dark-theme .cdm-marker-label { color: #aaa; }
 #cdmCustomColorPopup {
 border-radius: 12px !important;
 overflow: visible !important;
@@ -1575,19 +1491,11 @@ let textColor = '#333333';
 let desktopBorderColor = '#cccccc';
 let mobileBorderColor = '#cccccc';
 let previewMode = 'desktop';
-let pointsEnabled = false;
 let selectedFont = 'none';
 let desktopTitleAlign = 'left';
 let desktopTextAlign = 'left';
 let mobileTitleAlign = 'left';
 let mobileTextAlign = 'left';
-
-const MARKERS = [
-{ value: 1020, margin: 100 },
-{ value: 820,  margin: 175 },
-{ value: 720,  margin: 225 },
-{ value: 620,  margin: 275 }
-];
 
 function escapeHtml(str) {
 if (!str) return '';
@@ -1853,61 +1761,11 @@ return (className.match(/cdm-font-\S+/g) || []).join(' ');
 if (previewMode === 'desktop') {
 var mock = container.find('.desktop-mock');
 var screen = mock.find('.desktop-screen');
-mock.find('.width-markers-container').remove();
-if (pointsEnabled) {
-var activeW = parseInt(container.data('active-width') || 1020, 10);
-screen.css('padding', '80px 20px').css('max-width', activeW + 'px');
-var markersContainer = $('<div class="width-markers-container" style="position:absolute; top:0; left:0; width:100%; height:0; pointer-events:none; overflow:visible; z-index:10;"></div>');
-MARKERS.forEach(function(marker) {
-var percent = (marker.margin / 1020) * 100;
-var dotLeft = $('<div class="cdm-marker-dot" data-width="' + marker.value + '" style="position:absolute; top:0; left:' + percent + '%; width:6px; height:6px; border-radius:50%; transform:translate(-50%, -50%); pointer-events:auto; cursor:pointer;"></div>');
-var dotRight = $('<div class="cdm-marker-dot" data-width="' + marker.value + '" style="position:absolute; top:0; right:' + percent + '%; width:6px; height:6px; border-radius:50%; transform:translate(50%, -50%); pointer-events:auto; cursor:pointer;"></div>');
-var labelLeft = $('<span class="cdm-marker-label" data-width="' + marker.value + '" style="position:absolute; bottom:100%; left:' + percent + '%; transform:translateX(-50%); margin-bottom:4px; font-size:9px; font-weight:300; white-space:nowrap; pointer-events:none;">' + marker.value + '</span>');
-var labelRight = $('<span class="cdm-marker-label" data-width="' + marker.value + '" style="position:absolute; bottom:100%; right:' + percent + '%; transform:translateX(50%); margin-bottom:4px; font-size:9px; font-weight:300; white-space:nowrap; pointer-events:none;">' + marker.value + '</span>');
-markersContainer.append(dotLeft, dotRight, labelLeft, labelRight);
-});
-mock.append(markersContainer);
-function updateDisplay() {
-var isDark = $('.cdm-master').hasClass('dark-theme');
-var dotColor = isDark ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.35)';
-var labelColorM = isDark ? '#aaa' : '#888';
-var activeDotColor = isDark ? '#fff' : '#333';
-var activeLabelColorM = isDark ? '#fff' : '#333';
-var activeW = parseInt(container.data('active-width') || 1020, 10);
-mock.find('.cdm-marker-dot').css('background', dotColor);
-mock.find('.cdm-marker-label').css('color', labelColorM);
-mock.find('.cdm-marker-dot[data-width="' + activeW + '"]').css('background', activeDotColor);
-mock.find('.cdm-marker-label[data-width="' + activeW + '"]').css('color', activeLabelColorM);
-}
-updateDisplay();
-mock.find('.cdm-marker-dot').off('click').on('click', function(e) {
-e.stopPropagation();
-if (!pointsEnabled) return;
-var widthVal = parseInt($(this).data('width'), 10);
-var current = container.data('active-width') || 1020;
-if (current === widthVal) {
-container.data('active-width', 1020);
-} else {
-container.data('active-width', widthVal);
-}
-updatePreview();
-});
-} else {
-screen.css('padding', '80px 80px').css('max-width', '');
-}
+// [1.70/задача№6] Контрольные точки удалены — просто задаём стандартный отступ превью.
+screen.css('padding', '80px 20px').css('max-width', '');
 } else {
 var mockMobile = container.find('.phone-mock');
-mockMobile.find('.mobile-marker-container').remove();
-if (pointsEnabled) {
-var isDark = $('.cdm-master').hasClass('dark-theme');
-var dotColor = isDark ? '#fff' : '#333';
-var labelColorMob = isDark ? '#fff' : '#333';
-var mobileContainer = $('<div class="mobile-marker-container" style="position:absolute; top:0; left:0; width:100%; height:0; pointer-events:none; overflow:visible; z-index:10;"></div>');
-var dotMob = $('<div style="position:absolute; top:0; left:50%; width:6px; height:6px; border-radius:50%; background:' + dotColor + '; transform:translate(-50%, -50%);"></div>');
-var labelMob = $('<span style="position:absolute; bottom:100%; left:50%; transform:translateX(-50%); margin-bottom:4px; font-size:9px; color:' + labelColorMob + '; font-weight:300; white-space:nowrap;">480</span>');
-mobileContainer.append(dotMob, labelMob);
-mockMobile.append(mobileContainer);
-}
+// [1.70/задача№6] Контрольные точки мобильного превью удалены — ничего не добавляем.
 }
 }
 
@@ -2535,14 +2393,6 @@ $('.customColorPreviewMobileBorderColor').css('background', mobileBorderColor);
 updateAll();
 });
 
-var pointsToggle = $('#cdmTogglePoints');
-pointsToggle.prop('checked', false);
-pointsToggle.on('change', function() {
-pointsEnabled = $(this).is(':checked');
-$('#cdmPointsHelp').toggleClass('active', pointsEnabled);
-updatePreview();
-});
-
 function cdmToggleTheme() {
 var $master = $('.cdm-master');
 $master.toggleClass('dark-theme');
@@ -2557,26 +2407,6 @@ $('#cdmThemeToggle').css('color', '#aaa');
 updatePreview();
 }
 $('#cdmThemeToggle').on('click', cdmToggleTheme);
-
-var helpPopup = $('#cdmHelpPopup');
-var pointsHelp = $('#cdmPointsHelp');
-pointsHelp.on('mouseenter', function(e) {
-var rect = this.getBoundingClientRect();
-helpPopup.css({
-position: 'fixed',
-left: (rect.left - 50) + 'px',
-top: (rect.bottom + 10) + 'px',
-display: 'block'
-});
-});
-pointsHelp.on('mouseleave', function() {
-helpPopup.hide();
-});
-$(document).on('click', function(e) {
-if (!$(e.target).closest('#cdmHelpPopup').length && e.target.id !== 'cdmPointsHelp') {
-helpPopup.hide();
-}
-});
 
 var fontHelpPopup = $('#cdmFontHelpPopup');
 var fontHelpIcon = $('#cdmFontHelpIcon');
@@ -2726,14 +2556,12 @@ window.parent.postMessage({ action: 'cdm-apply', code: codeToApply, settings: ge
 });
 
 $(window).on('resize', function() {
-if (previewMode === 'desktop' && pointsEnabled) {
+// [1.70/задача№6] Требовалась перерисовка превью при контрольных точках; они удалены —
+// при ресайзе можно просто обновить превью (безопасно).
+if (previewMode === 'desktop') {
 updatePreview();
 }
 });
-
-pointsToggle.prop('checked', false);
-pointsEnabled = false;
-$('#cdmPointsHelp').removeClass('active');
 
 // Preview animation styles
 $('<style id="cdm-preview-anim-style">').appendTo('head');
