@@ -1827,7 +1827,13 @@ for (var i = 0; i < slideCount; i++) {
 var s = slides[i];
 var imgSrc = s.img || ('https://placehold.co/800x600?text=Slide+' + (i+1));
 var imgAlt = 'Слайд ' + (i+1);
-slidesHtml += '<div class="cdm-' + suffix + '-2">\n<img src="' + escapeHtml(imgSrc) + '" alt="' + imgAlt + '">\n<div class="cdm-' + suffix + '-3">\n<h5>' + escapeHtml(s.title) + '</h5>\n<p>' + escapeHtml(s.text) + '</p>\n</div>\n</div>';
+// [1.72] Ускорение первой прогрузки: первый слайд загружается сразу с высоким приоритетом
+// (fetchpriority="high"), остальные — лениво (loading="lazy" + decoding="async"), чтобы блок
+// быстро появлялся на публичной странице, а остальные картинки догружались по мере надобности.
+var imgAttrs = (i === 0)
+  ? 'fetchpriority="high" decoding="async"'
+  : 'loading="lazy" decoding="async"';
+slidesHtml += '<div class="cdm-' + suffix + '-2">\n<img src="' + escapeHtml(imgSrc) + '" alt="' + imgAlt + '" ' + imgAttrs + '>\n<div class="cdm-' + suffix + '-3">\n<h5>' + escapeHtml(s.title) + '</h5>\n<p>' + escapeHtml(s.text) + '</p>\n</div>\n</div>';
 }
 
 var animDelaysCss = '';
