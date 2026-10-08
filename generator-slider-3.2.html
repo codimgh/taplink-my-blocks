@@ -370,7 +370,7 @@ filter: invert(1) brightness(1.5);
 <div class="cdm-control-group">
 <label class="cdm-label" style="font-size:14px; font-weight:300; color:#333; margin-bottom:12px;">Управление слайдами</label>
 <div id="cdmSlidesContainer"></div>
-<button id="cdmAddSlideBtn" class="cdm-add-slide-btn"><i class="ph ph-selection-plus" style="font-size:14px;"></i> Добавить слайд</button>
+<button id="cdmAddSlideBtn" class="cdm-add-slide-btn"><i class="ph ph-selection-plus"></i> Добавить слайд</button>
 </div>
 </div>
 <div style="margin-bottom:24px;">
@@ -875,7 +875,8 @@ color: #e0e0e0 !important;
 }
 .cdm-control-group { margin-bottom: 20px; }
 .cdm-label { display: block; font-size: 14px; font-weight: 300; color: #333; margin-bottom: 8px; }
-.cdm-textarea, .cdm-input { width: 100%; padding: 10px 12px; background: transparent !important; border: 1px solid #ccccccab; border-radius: 6px !important; color: #333 !important; font-size: 14px !important; font-weight: 300 !important; outline: none; box-shadow: none; font-family: 'Inter', sans-serif; }
+.cdm-textarea, .cdm-input { width: 100%; padding: 10px 12px; background: transparent !important; border: 1px solid #ccccccab; border-radius: 6px !important; color: #333 !important; font-size: 14px !important; font-weight: 300 !important; outline: none; box-shadow: none; font-family: 'Inter', sans-serif; margin-bottom: 5px; }
+.cdm-textarea.cdm-slide-text { height: 130px !important; min-height: 130px !important; resize: none; }
 .cdm-textarea:focus, .cdm-input:focus { outline: none; border-color: #ccccccab; box-shadow: none; }
 .cdm-input[type="number"]::-webkit-outer-spin-button,
 .cdm-input[type="number"]::-webkit-inner-spin-button {
@@ -942,10 +943,10 @@ background: transparent;
 font-weight: 400;
 }
 .cdm-range-wrapper { background: transparent; padding: 25px 12px 8px; border-radius: 6px; border: 1px solid #3333331f; }
-.cdm-range { width: 100%; height: 2px; -webkit-appearance: none; appearance: none; background: rgba(16, 17, 20, 0.1) !important; border-radius: 3px; outline: none; }
+.cdm-range { width: 100%; height: 2px; -webkit-appearance: none; appearance: none; background: rgba(16, 17, 20, 0.1) !important; border-radius: 3px; outline: none; margin-top: 3px; }
 .cdm-range::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; background: #333 !important; border-radius: 50%; cursor: pointer; border: 2px solid #fff; box-shadow: 0 0 0 1px #333; }
 .cdm-range::-moz-range-thumb { width: 12px; height: 12px; background: #333 !important; border-radius: 50%; cursor: pointer; border: 2px solid #fff; box-shadow: 0 0 0 1px #333; }
-.cdm-range-values { display: flex; justify-content: space-between; font-size: 10px; color: #1c1c1c; margin-top: 8px; font-weight: 300; }
+.cdm-range-values { display: flex; justify-content: space-between; font-size: 10px; color: #1c1c1c; margin-top: 12px; font-weight: 300; }
 .cdm-reset-btn {
 width: 100%;
 background: transparent;
@@ -1331,7 +1332,7 @@ border-color: #3333337a;
 color: #333;
 }
 .cdm-add-slide-btn i {
-font-size: 14px;
+font-size: 16px;
 display: inline-flex;
 align-items: center;
 justify-content: center;
