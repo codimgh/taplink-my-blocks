@@ -1381,6 +1381,12 @@ color: #e0e0e0;
 border-color: #e0e0e0;
 color: #e0e0e0;
 }
+/* Все иконки внутри тёмного конфигуратора перекрашиваются под тему (наследуют цвет предка).
+   Специфичные правила выше (с !important) сохраняют приоритет, это — базовый фолбэк для тех
+   иконок, у которых нет своего dark-правила (delete-slide, question, arrow-реордера и т.д.) */
+.cdm-master.dark-theme i[class*='ph-'] {
+color: inherit !important;
+}
 </style>
 <script>
 /* Автономные иконки конфигуратора (без Phosphor CDN) */
@@ -1405,14 +1411,14 @@ var svg=CDM_ICONS[key]; if(!svg) continue;
     el.innerHTML=svg; el.setAttribute("data-cdm-svg","1");
     var svgEl=el.firstElementChild;
     if(svgEl){
-      // Размер и цвет берём из ВЫЧИСЛЕННОГО стиля (учитывает и inline, и CSS-класс),
-      // чтобы SVG корректно встраивался для любого размера иконки.
+      // Размер берём из ВЫЧИСЛЕННОГО стиля (учитывает и inline, и CSS-класс), чтобы SVG
+      // корректно встраивался для любого размера иконки. Цвет НЕ фиксируем на SVG — иконка
+      // использует currentColor из предка <i>, чей цвет меняется CSS при смене темы
+      // (.dark-theme .cdm-custom-color-row i и т.п.), поэтому иконка перекрашивается с темой.
       var cs=window.getComputedStyle(el);
       var fs=el.style.fontSize || cs.fontSize;
-      var col=el.style.color || cs.color;
       var px=parseFloat(fs);
       if(px){ svgEl.setAttribute("width",px); svgEl.setAttribute("height",px); }
-      if(col){ svgEl.setAttribute("color",col); }
     }
   }
 }
