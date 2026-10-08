@@ -1768,6 +1768,47 @@ var mockMobile = container.find('.phone-mock');
 function generateFinalCode() {
 var suffix = generateRandomSuffix(15);
 currentSuffix = suffix;
+
+// [1.72] Карта выбранных шрифтов (data-value из конфигуратора → Google Fonts семейство + CSS).
+// Используется, чтобы встраивать В КОД блока только выбранный шрифт (link + font-family),
+// а не все 26. Раньше шрифт применялся только в превью фрейма и не попадал в публичный блок.
+var cdmFontMap = {
+'Montserrat': { gf: 'Montserrat', css: "'Montserrat', sans-serif" },
+'Oswald': { gf: 'Oswald', css: "'Oswald', sans-serif" },
+'Raleway': { gf: 'Raleway', css: "'Raleway', sans-serif" },
+'PlayfairDisplay': { gf: 'Playfair Display', css: "'Playfair Display', serif" },
+'Roboto': { gf: 'Roboto', css: "'Roboto', sans-serif" },
+'Lobster': { gf: 'Lobster', css: "'Lobster', cursive" },
+'Pacifico': { gf: 'Pacifico', css: "'Pacifico', cursive" },
+'Caveat': { gf: 'Caveat', css: "'Caveat', cursive" },
+'MontserratAlternates': { gf: 'Montserrat Alternates', css: "'Montserrat Alternates', sans-serif" },
+'KellySlab': { gf: 'Kelly Slab', css: "'Kelly Slab', cursive" },
+'Pangolin': { gf: 'Pangolin', css: "'Pangolin', cursive" },
+'OpenSansCondensed': { gf: 'Open Sans Condensed', css: "'Open Sans Condensed', sans-serif" },
+'AmaticSC': { gf: 'Amatic SC', css: "'Amatic SC', cursive" },
+'Merriweather': { gf: 'Merriweather', css: "'Merriweather', serif" },
+'Comfortaa': { gf: 'Comfortaa', css: "'Comfortaa', sans-serif" },
+'PTMono': { gf: 'PT Mono', css: "'PT Mono', monospace" },
+'OpenSans': { gf: 'Open Sans', css: "'Open Sans', sans-serif" },
+'Alice': { gf: 'Alice', css: "'Alice', serif" },
+'IBMPlexSans': { gf: 'IBM Plex Sans', css: "'IBM Plex Sans', sans-serif" },
+'Manrope': { gf: 'Manrope', css: "'Manrope', sans-serif" },
+'RobotoSlab': { gf: 'Roboto Slab', css: "'Roboto Slab', serif" },
+'CormorantGaramond': { gf: 'Cormorant Garamond', css: "'Cormorant Garamond', serif" },
+'RussoOne': { gf: 'Russo One', css: "'Russo One', sans-serif" },
+'SourceSansPro': { gf: 'Source Sans Pro', css: "'Source Sans Pro', sans-serif" },
+'Exo2': { gf: 'Exo 2', css: "'Exo 2', sans-serif" }
+};
+var selFont = (typeof selectedFont === 'string') ? selectedFont : 'none';
+var fontData = selFont !== 'none' ? cdmFontMap[selFont] : null;
+var fontLinkHtml = '';
+var fontCssExtra = '';
+if (fontData) {
+var gfName = fontData.gf.replace(/ /g, '+');
+fontLinkHtml = '<link href="https://fonts.googleapis.com/css2?family=' + gfName + '&display=swap" rel="stylesheet">\n';
+fontCssExtra = '.cdm-' + suffix + '-3 h5, .cdm-' + suffix + '-3 p { font-family: ' + fontData.css + ' !important; }\n';
+}
+
 var slides = getSlideData();
 var slideCount = slides.length;
 if (slideCount < 1) slideCount = 1;
@@ -1978,9 +2019,10 @@ animDelaysCss +
 'margin-top: 8%;\n' +
 '}\n' +
 '}\n' +
+fontCssExtra +
 '</style>\n';
 
-return code.replace(/\n/g, '');
+return (fontLinkHtml + code).replace(/\n/g, '');
 }
 
 let currentSuffix = '';
